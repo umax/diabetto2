@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block toolbar %}
+    <a href="/" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">Назад</a>
+    <h1>Diabetto</h1>
+{% endblock toolbar %}
+
+{% block content %}
+    <ul data-role="listview" data-filter="true" data-filter-placeholder="Название продукта ..." data-inset="true">
+        {% for product in products %}
+            <li><a href="#">{{ product.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock content %}
