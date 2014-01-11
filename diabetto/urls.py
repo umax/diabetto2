@@ -7,7 +7,12 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$',  views.IndexView.as_view(), name='index'),
-
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'products/(?P<pk>\d+)/$', views.ProductDetailView.as_view(),
+        name='detail_product'),
+    url(r'products/$', views.ProductIndexView.as_view(),
+        name='index_product'),
+
+    url(r'^$',  views.IndexView.as_view(), name='index'),
 )
