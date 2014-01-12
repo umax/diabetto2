@@ -2,7 +2,7 @@
 
 import json
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import (ListView, DetailView,
                                   CreateView, DeleteView)
@@ -13,6 +13,7 @@ __all__ = (
     'ProductIndexView',
     'ProductDetailView',
     'ProductCreateView',
+    'ProductDeleteView',
 )
 
 
@@ -52,4 +53,21 @@ class ProductCreateView(AjaxableResponseMixin, CreateView):
     model = models.Product
     fields = ['name']
     success_url = reverse_lazy('index_product')
+
+
+class ProductDeleteView(DeleteView):
+    model = models.Product
+    context_object_name = 'product'
+    success_url = reverse_lazy('index_product')
+
+    def get(self, request, *args, **kwargs):
+        """
+        Calls the delete() method on the fetched object and then
+        redirects to the success URL.
+        """
+        self.object = self.get_object()
+        success_url = self.get_success_url()
+        self.object.delete()
+        return HttpResponseRedirect(success_url)
+
 
