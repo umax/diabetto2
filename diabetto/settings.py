@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'diabetto',
+    'product',
     'south',
 )
 
@@ -50,7 +51,10 @@ ROOT_URLCONF = 'diabetto.urls'
 
 WSGI_APPLICATION = 'diabetto.wsgi.application'
 
-TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+TEMPLATE_DIRS = [
+    os.path.join(BASE_DIR, 'templates'),
+    os.path.join(BASE_DIR, 'product/templates')
+]
 
 
 # Database

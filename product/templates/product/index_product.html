@@ -7,12 +7,12 @@
         window.Diabetto.urlProducts = "{% url 'index_product' %}";
         window.Diabetto.urlCreateProduct = "{% url 'create_product' %}";
     </script>
-    <script src="{% static 'js/product.js' %}"></script>
+    <script src="{% static 'product/js/index.js' %}"></script>
 
 {% endblock js %}
 
 {% block toolbar %}
-    <a href="/" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">Все продукты</a>
+    <a href="/" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext"> </a>
     <h1>Diabetto</h1>
     <a href="#popupNewProduct" data-transition="pop" data-rel="popup" data-position-to="window" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus">Новый продукт</a>
 {% endblock toolbar %}

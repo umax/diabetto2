@@ -31,6 +31,7 @@
 
     $(document).ready(function() {
         $('#formNewProduct').submit(onNewProductSubmit);
+
         $("#popupNewProduct").on("popupafterclose", function(event, ui) {
             $('#formErrors').hide();
         });

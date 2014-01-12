@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block toolbar %}
+    <a href="{% url 'index_product' %}" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back">Все продукты</a>
+    <h1>{{ product.name }}</h1>
+{% endblock toolbar %}
+
+{% block content %}
+    {{ product.name }}
+{% endblock content %}
