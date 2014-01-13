@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block js %}
+    <script>
+        window.Diabetto = window.Diabetto || {};
+        window.Diabetto.urlUpdateProduct = "{% url 'update_product' pk=product.pk %}";
+        window.Diabetto.urlProductDetails = "{% url 'detail_product' pk=product.pk %}";
+    </script>
+
+    <script src="{% static 'product/js/edit.js' %}"></script>
+{% endblock js %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'detail_category' pk=product.category.pk %}" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех продуктов группы"></a>
+    <h1>Продукт "{{ product.name }}"</h1>
+    <div class="ui-btn-right">
+        <a href="#popupEditProduct" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" title="Редактировать этот продукт"></a>&nbsp;
+        <a href="#popupDeleteProduct" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext" title="Удалить этот продукт из базы"></a>
+    </div>
+{% endblock toolbar %}
+
+{% block content %}
+    {{ product.name }}
+{% endblock content %}
+
+{% block hidden_content %}
+    <div data-role="popup" id="popupDeleteProduct" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+        <div data-role="header" data-theme="a">
+        <h1>Удаление</h1>
+        </div>
+        <div role="main" class="ui-content">
+            <h3 class="ui-title">Продукт будет удален из базы. Продолжить?</h3>
+            <a href="#" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-rel="back">Отмена</a>
+            <a data-ajax="false" href="{% url 'delete_product' pk=product.pk %}" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b" data-transition="flow">Удалить</a>
+        </div>
+    </div>
+
+    <div data-role="popup" id="popupEditProduct" data-theme="a" class="ui-corner-all">
+        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+        <form id="formEditProduct">
+            <div style="padding:10px 20px;">
+                <h3>Редактирование продукта</h3>
+                <label for="name" class="ui-hidden-accessible">Название продукта</label>
+                <input type="text" name="name" id="name" value="{{ product.name }}" placeholder="название продукта" data-theme="a">
+                <br/>
+                <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-plus">Изменить</button>
+
+                <div id='formErrors' style="display:none;">
+                    <hr/>
+                    <h4 style="color: red;">Форма заполнена неверно</h4>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock hidden_content %}

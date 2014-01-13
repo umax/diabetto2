@@ -1,19 +1,24 @@
 (function($, global) {
 
+    function toggleFormErrors(toggle) {
+        $('#formErrors').toggle(toggle);
+    }
+
     function onNewProductSubmit(form) {
-        $('#formErrors').hide();
+        toggleFormErrors(false);
 
         var productName = $('#name').val(),
             submitData = {
-                'name': productName
+                'name': productName,
+                'category': global.Diabetto.currentCategory
             };
 
-        function onCreateSuccess() {
-            global.location.href = global.Diabetto.urlProducts;
+        function onCreateSuccess(data) {
+            global.location.href = global.Diabetto.urlCategoryDetails;
         }
 
         function onCreateError(data) {
-            $('#formErrors').show();
+            toggleFormErrors(true);
         }
         
         $.ajax({
@@ -33,7 +38,7 @@
         $('#formNewProduct').submit(onNewProductSubmit);
 
         $("#popupNewProduct").on("popupafterclose", function(event, ui) {
-            $('#formErrors').hide();
+            toggleFormErrors(false);
         });
     });
 
