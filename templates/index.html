@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <ul data-role="listview" data-inset="true">
-        <li><a href="{% url 'index_category' %}" class="ui-btn" data-ajax="false">Продукты</a></li>
-    </ul>
+    <a style="height: 32px; font-size:24px;" href="{% url 'index_category' %}" class="ui-btn ui-corner-all" data-ajax="false">Продукты</a>
 {% endblock content %}
