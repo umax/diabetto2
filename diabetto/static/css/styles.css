@@ -1,0 +1,35 @@
+.js-list-item {
+    height: 40px;
+    line-height:40px;
+    font-size: 22px;
+}
+
+.js-simple-text {
+    font-size: 22px;
+}
+
+.ui-header {
+    height: 60px;
+    font-size: 22px;
+}
+
+.ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {
+    width: 45px;
+    height: 45px;
+}
+
+.ui-header .ui-btn-inner .ui-icon{
+    margin: 0px;
+    border-radius: 0;
+}
+
+.ui-input-search {
+    height: 50px;
+    line-height:60px;
+    font-size: 22px;
+}
+
+.ui-corner-all {
+    -webkit-border-radius: .6125em;
+    border-radius: .6125em;
+}

@@ -48,6 +48,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.contrib.auth.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.static",
+    "diabetto.context_processors.common",
+)
+
 ROOT_URLCONF = 'diabetto.urls'
 
 WSGI_APPLICATION = 'diabetto.wsgi.application'
@@ -80,10 +87,12 @@ USE_I18N = False
 
 USE_L10N = False
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
+
+VERSION = '0.1'

@@ -29,11 +29,11 @@
     {% if category.product_set.all %}
         <ul data-role="listview" data-filter="true" data-filter-placeholder="Искать продукт ..." data-inset="true">
             {% for product in category.product_set.all %}
-                <li><a href="{{ product.get_absolute_url }}" data-ajax="false">{{ product.name }}</a></li>
+                <li><a class="js-list-item" href="{{ product.get_absolute_url }}" data-ajax="false">{{ product.name }}</a></li>
             {% endfor %}
         </ul>
     {% else %}
-        <p>Выбранная группа пока не содержит продуктов</p>
+        <p class="js-simple-text">Выбранная группа пока не содержит продуктов</p>
     {% endif %}
 {% endblock content %}
 
