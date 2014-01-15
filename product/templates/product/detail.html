@@ -21,7 +21,19 @@
 {% endblock toolbar %}
 
 {% block content %}
-    {{ product.name }}
+    <form>
+        <ul data-role="listview" data-inset="true">
+            <li class="ui-field-contain">
+                <label class="js-label" for="name">Название:</label>
+                <input class="js-input" input="text" name="name" id="name" value="{{ product.name }}" readonly="readonly" />
+            </li>
+
+            <li class="ui-field-contain">
+                <label class="js-label" for="carbohydrates">Углеводы:</label>
+                <input class="js-input" input="text" name="carbohydrates" id="carbohydrates" value="{{ product.carbohydrates }}" readonly="readonly" />
+            </li>
+        </ul>
+    </form>
 {% endblock content %}
 
 {% block hidden_content %}

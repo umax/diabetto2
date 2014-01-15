@@ -1,3 +1,13 @@
+.js-label {
+    font-size: 22px !important;
+    height: 40px;
+}
+
+.js-input {
+    font-size: 22px !important;
+    height: 40px;
+}
+
 .js-list-item {
     height: 40px;
     line-height:40px;
@@ -9,8 +19,8 @@
 }
 
 .ui-header {
-    height: 60px;
-    font-size: 22px;
+    height: 64px;
+    font-size: 24px;
 }
 
 .ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {

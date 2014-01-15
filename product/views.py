@@ -1,9 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy, reverse
-from django.views.generic import (ListView, DetailView, CreateView, DeleteView,
-                                  UpdateView)
+from django.core.urlresolvers import reverse
+from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 
 from diabetto.mixins import AjaxableResponseMixin
 
@@ -25,7 +24,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(AjaxableResponseMixin, CreateView):
     model = models.Product
-    fields = ['name', 'category']
+    fields = ['name', 'carbohydrates', 'category']
 
     def get_success_url(self):
         return reverse('detail_category',
@@ -34,7 +33,7 @@ class ProductCreateView(AjaxableResponseMixin, CreateView):
 
 class ProductUpdateView(AjaxableResponseMixin, UpdateView):
     model = models.Product
-    fields = ['name']
+    fields = ['name', 'carbohydrates']
 
     def get_success_url(self):
         return reverse('detail_product', kwargs={'pk': self.object.id})

@@ -7,9 +7,12 @@
     function onNewProductSubmit(form) {
         toggleFormErrors(false);
 
-        var productName = $('#name').val(),
+        var form = $(this),
+            productName = $('#name', form).val(),
+            productCarbohydrates = $('#carbohydrates', form).val(),
             submitData = {
                 'name': productName,
+                'carbohydrates': productCarbohydrates,
                 'category': global.Diabetto.currentCategory
             };
 
