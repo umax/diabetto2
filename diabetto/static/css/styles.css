@@ -9,9 +9,11 @@
 }
 
 .js-list-item {
-    height: 40px;
-    line-height:40px;
-    font-size: 22px;
+    padding: .2em 1em;
+}
+
+.js-list-item-title {
+    font-size: 20px !important;
 }
 
 .js-simple-text {

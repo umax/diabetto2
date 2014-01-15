@@ -20,7 +20,12 @@
 {% block content %}
     <ul data-role="listview" data-filter="true" data-filter-placeholder="Искать группу ..." data-inset="true">
         {% for category in categories %}
-            <li><a class="js-list-item" href="{{ category.get_absolute_url }}" data-ajax="false">{{ category.name }}</a></li>
+            <li>
+                <a class="js-list-item" href="{{ category.get_absolute_url }}" data-ajax="false">
+                    <h3 class="js-list-item-title">{{ category.name }}</h3>
+                    <p>Продуктов: {{ category.product_set.all|length }}</p>
+                </a>
+            </li>
         {% endfor %}
     </ul>
 {% endblock content %}
