@@ -9,8 +9,10 @@
 
         var form = $(this),
             productName = $('#name', form).val(),
+            productCarbohydrates = $('#carbohydrates', form).val(),
             submitData = {
-                'name': productName
+                'name': productName,
+                'carbohydrates': productCarbohydrates
             };
 
         function onCreateSuccess(data) {
@@ -20,7 +22,7 @@
         function onCreateError(data) {
             toggelFormErrors(true);
         }
-        
+
         $.ajax({
             'url': global.Diabetto.urlUpdateProduct,
             'async': false,

@@ -55,6 +55,10 @@
                 <h3>Редактирование продукта</h3>
                 <label for="name" class="ui-hidden-accessible">Название продукта</label>
                 <input type="text" name="name" id="name" value="{{ product.name }}" placeholder="название продукта" data-theme="a">
+
+                <label for="carbohydrates" class="ui-hidden-accessible">Углеводы (в 100г)</label>
+                <input type="text" name="carbohydrates" id="carbohydrates" value="{{ product.carbohydrates }}" placeholder="углеводы (в 100г)" data-theme="a">
+
                 <br/>
                 <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-plus">Изменить</button>
 
