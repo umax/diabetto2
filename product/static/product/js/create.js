@@ -10,9 +10,11 @@
         var form = $(this),
             productName = $('#name', form).val(),
             productCarbohydrates = $('#carbohydrates', form).val(),
+            glycemicIndex = $('#glycemic_index', form).val(),
             submitData = {
                 'name': productName,
                 'carbohydrates': productCarbohydrates,
+                'glycemic_index': glycemicIndex,
                 'category': global.Diabetto.currentCategory
             };
 

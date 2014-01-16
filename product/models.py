@@ -13,6 +13,7 @@ __all__ = (
 class Product(models.Model):
     name = models.CharField(max_length=128)
     carbohydrates = models.PositiveIntegerField(default=0)
+    glycemic_index = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(Category, null=True, default=None)
 
     class Meta:

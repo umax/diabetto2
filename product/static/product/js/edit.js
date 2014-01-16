@@ -10,9 +10,11 @@
         var form = $(this),
             productName = $('#name', form).val(),
             productCarbohydrates = $('#carbohydrates', form).val(),
+            glycemicIndex = $('#glycemic_index', form).val(),
             submitData = {
                 'name': productName,
-                'carbohydrates': productCarbohydrates
+                'carbohydrates': productCarbohydrates,
+                'glycemic_index': glycemicIndex
             };
 
         function onCreateSuccess(data) {

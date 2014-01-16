@@ -24,7 +24,7 @@ class ProductDetailView(DetailView):
 
 class ProductCreateView(AjaxableResponseMixin, CreateView):
     model = models.Product
-    fields = ['name', 'carbohydrates', 'category']
+    fields = ['name', 'carbohydrates', 'glycemic_index', 'category']
 
     def get_success_url(self):
         return reverse('detail_category',
@@ -33,7 +33,7 @@ class ProductCreateView(AjaxableResponseMixin, CreateView):
 
 class ProductUpdateView(AjaxableResponseMixin, UpdateView):
     model = models.Product
-    fields = ['name', 'carbohydrates']
+    fields = ['name', 'carbohydrates', 'glycemic_index']
 
     def get_success_url(self):
         return reverse('detail_product', kwargs={'pk': self.object.id})

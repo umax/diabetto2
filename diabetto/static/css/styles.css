@@ -3,6 +3,13 @@
     height: 40px;
 }
 
+.js-label-large {
+    font-size: 22px !important;
+    height: 40px;
+    width: 40% !important;
+}
+
+
 .js-input {
     font-size: 22px !important;
     height: 40px;
