@@ -9,6 +9,7 @@ __all__ = (
     'Product',
 )
 
+CARBOHYDRATE_UNIT = 12.0
 
 class Product(models.Model):
     name = models.CharField(max_length=128)
@@ -22,3 +23,7 @@ class Product(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail_product', kwargs={'pk': self.pk})
+
+    @property
+    def cu_product(self):
+        return '%.2f' % (100 * CARBOHYDRATE_UNIT / self.carbohydrates)
