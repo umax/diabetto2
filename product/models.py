@@ -20,6 +20,8 @@ class Product(models.Model):
     class Meta:
         ordering = ['name']
         unique_together = ('name', 'category')
+        verbose_name = u'Продукт'
+        verbose_name_plural = u'продукты'
 
     def get_absolute_url(self):
         return reverse('detail_product', kwargs={'pk': self.pk})
@@ -27,3 +29,7 @@ class Product(models.Model):
     @property
     def cu_product(self):
         return '%.2f' % (100 * CARBOHYDRATE_UNIT / self.carbohydrates)
+
+    def admin_product_name(self):
+        return self.name
+    admin_product_name.short_description = u'Название'
