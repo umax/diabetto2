@@ -1,3 +1,16 @@
+.form-submit-button {
+    height: 70px;;
+}
+
+.form-label {
+    font-size: 22px !important;
+}
+
+.form-input {
+    font-size: 22px !important;
+    height: 40px;
+}
+
 .js-label {
     font-size: 22px !important;
     height: 40px;
@@ -8,7 +21,6 @@
     height: 40px;
     width: 40% !important;
 }
-
 
 .js-input {
     font-size: 22px !important;
@@ -28,13 +40,13 @@
 }
 
 .ui-header {
-    height: 64px;
-    font-size: 24px;
+    height: 72px;
+    font-size: 26px;
 }
 
 .ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {
-    width: 45px;
-    height: 45px;
+    width: 55px;
+    height: 55px;
 }
 
 .ui-header .ui-btn-inner .ui-icon{
@@ -53,12 +65,20 @@
 }
 
 .ui-input-search {
-    height: 50px;
-    line-height:60px;
-    font-size: 22px;
+    height: 52px;
+    line-height:56px;
+    font-size: 24px;
 }
 
 .ui-corner-all {
     -webkit-border-radius: .6125em;
     border-radius: .6125em;
+}
+
+.errorlist li {
+    color: red;
+}
+
+.ui-header .ui-title, .ui-footer .ui-title {
+    margin: 0 10%;
 }

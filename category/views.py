@@ -7,6 +7,7 @@ from django.views.generic import (ListView, DetailView, CreateView,
 
 from diabetto.mixins import AjaxableResponseMixin
 
+from . import forms
 from . import models
 
 __all__ = (
@@ -30,9 +31,9 @@ class CategoryDetailView(DetailView):
     template_name = 'category/detail.html'
 
 
-class CategoryCreateView(AjaxableResponseMixin, CreateView):
-    model = models.Category
-    fields = ['name']
+class CategoryCreateView(CreateView):
+    form_class = forms.CategoryForm
+    template_name = 'category/create.html'
     success_url = reverse_lazy('index_category')
 
 

@@ -1,20 +1,10 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block js %}
-    <script>
-        window.Diabetto = window.Diabetto || {};
-        window.Diabetto.urlCategories = "{% url 'index_category' %}";
-        window.Diabetto.urlCreateCategory = "{% url 'create_category' %}";
-    </script>
-
-    <script src="{% static 'category/js/create.js' %}"></script>
-{% endblock js %}
-
 {% block toolbar %}
     <a data-ajax="false" href="/" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться в главное меню"></a>
     <h6>Группы продуктов</h6>
-    <a href="#popupNewCategory" data-transition="pop" data-rel="popup" data-position-to="window" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новую группу в базу"></a>
+    <a href="{% url 'create_category' %}" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новую группу в базу"></a>
 {% endblock toolbar %}
 
 {% block content %}
@@ -29,23 +19,3 @@
         {% endfor %}
     </ul>
 {% endblock content %}
-
-{% block hidden_content %}
-    <div data-role="popup" id="popupNewCategory" data-theme="a" class="ui-corner-all">
-        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-        <form id="formNewCategory">
-            <div style="padding:10px 20px;">
-                <h3>Новая группа</h3>
-                <label for="name" class="ui-hidden-accessible">Название группы</label>
-                <input type="text" name="name" id="name" value="" placeholder="название" data-theme="a">
-                <br/>
-                <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-plus">Добавить</button>
-
-                <div id='formErrors' style="display:none;">
-                    <hr/>
-                    <p style="color: red;">Форма заполнена неверно или<br/>группа с таким именем уже<br/>создана</p>
-                </div>
-            </div>
-        </form>
-    </div>
-{% endblock hidden_content %}

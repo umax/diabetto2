@@ -8,7 +8,10 @@ __all__ = (
 )
 
 class Category(models.Model):
-    name = models.CharField(max_length=128, unique=True)
+    name = models.CharField(
+        max_length=128,
+        unique=True,
+        error_messages={'unique': u'Группа с таким названием уже существует'})
 
     class Meta:
         ordering = ['name']
