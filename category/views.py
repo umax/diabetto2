@@ -37,12 +37,12 @@ class CategoryCreateView(CreateView):
     success_url = reverse_lazy('index_category')
 
 
-class CategoryUpdateView(AjaxableResponseMixin, UpdateView):
+class CategoryUpdateView(UpdateView):
     model = models.Category
-    fields = ['name']
-
-    def get_success_url(self):
-        return reverse('detail_category', kwargs={'pk': self.object.pk})
+    form_class = forms.CategoryForm
+    context_object_name = 'category'
+    template_name = 'category/update.html'
+    success_url = reverse_lazy('index_category')
 
 
 class CategoryDeleteView(DeleteView):
