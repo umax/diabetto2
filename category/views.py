@@ -1,11 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.core.urlresolvers import reverse_lazy
 from django.views.generic import (ListView, DetailView, CreateView,
                                   DeleteView, UpdateView)
-
-from diabetto.mixins import AjaxableResponseMixin
 
 from . import forms
 from . import models
@@ -48,16 +46,5 @@ class CategoryUpdateView(UpdateView):
 class CategoryDeleteView(DeleteView):
     model = models.Category
     context_object_name = 'category'
+    template_name = 'category/delete.html'
     success_url = reverse_lazy('index_category')
-
-    def get(self, request, *args, **kwargs):
-        """
-        Calls the delete() method on the fetched object and then
-        redirects to the success URL.
-        """
-        self.object = self.get_object()
-        success_url = self.get_success_url()
-        self.object.delete()
-        return HttpResponseRedirect(success_url)
-
-

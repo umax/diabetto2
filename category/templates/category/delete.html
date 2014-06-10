@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'detail_category' pk=category.id %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех групп"></a>
+    <h6>Удаление группы</h6>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <p>Группа "{{ category.name }}" и все ее продукты будут удалены.</p>
+
+        <button class="ui-btn ui-corner-all form-submit-button" type="submit">Удалить</button>
+    </form>
+{% endblock content %}
