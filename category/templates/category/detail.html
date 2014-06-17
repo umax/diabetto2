@@ -1,23 +1,10 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
-
-{% block js %}
-    <script>
-        window.Diabetto = window.Diabetto || {};
-        window.Diabetto.currentCategory = "{{ category.id }}";
-        window.Diabetto.urlCategoryDetails = "{% url 'detail_category' pk=category.id %}";
-        window.Diabetto.urlCreateProduct = "{% url 'create_product' %}";
-    </script>
-
-    <script src="{% static 'product/js/create.js' %}"></script>
-{% endblock js %}
 
 {% block toolbar %}
     <a data-ajax="false" href="{% url 'index_category' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех групп"></a>
     <h6>Группа "{{ category.name }}"</h6>
     <div class="ui-btn-right">
-        <a href="#popupCreateProduct" data-rel="popup" data-position-to="window" data-transition="pop" class="ui-btn ui-corner-all ui-icon-plus ui-btnui-btn-icon-left ui-btn-icon-notext" title="Добавить продукт в эту группу"></a>&nbsp;&nbsp;&nbsp;
-
+        <a href="{% url 'create_product' %}?category_id={{ category.id }}" class="ui-btn ui-corner-all ui-icon-plus ui-btnui-btn-icon-left ui-btn-icon-notext" title="Добавить продукт в эту группу"></a>&nbsp;&nbsp;&nbsp;
         <a href="{% url 'update_category' pk=category.id %}" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" title="Редактировать эту группу"></a>&nbsp;
         <a href="{% url 'delete_category' pk=category.id %}" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext" title="Удалить эту группу из базы"></a>
     </div>
@@ -36,33 +23,6 @@
             {% endfor %}
         </ul>
     {% else %}
-        <p class="js-simple-text">Выбранная группа пока не содержит продуктов</p>
+        <label>Выбранная группа пока не содержит продуктов.</label>
     {% endif %}
 {% endblock content %}
-
-{% block hidden_content %}
-    <div data-role="popup" id="popupCreateProduct" data-theme="a" class="ui-corner-all">
-        <a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
-        <form id="formNewProduct">
-            <div style="padding:10px 20px;">
-                <h3>Добавление продукта</h3>
-                <label for="name" class="ui-hidden-accessible">Название продукта</label>
-                <input type="text" name="name" id="name" value="" placeholder="название продукта" data-theme="a">
-
-                <label for="carbohydrates" class="ui-hidden-accessible">Углеводы (в 100г)</label>
-                <input type="text" name="carbohydrates" id="carbohydrates" value="" placeholder="углеводы (в 100г)" data-theme="a">
-
-                <label for="glycemic_index" class="ui-hidden-accessible">Гликемический индекс</label>
-                <input type="text" name="glycemic_index" id="glycemic_index" value="" placeholder="гликемический индекс" data-theme="a">
-
-                <br/>
-                <button type="submit" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-plus">Добавить</button>
-
-                <div id='formErrors' style="display:none;">
-                    <hr/>
-                    <p style="color: red;">Форма заполнена неверно или<br/>такой продукт уже создан</p>
-                </div>
-            </div>
-        </form>
-    </div>
-{% endblock hidden_content %}

@@ -1,19 +1,18 @@
 {% extends 'base.html' %}
-{% load staticfiles %}
 
 {% block toolbar %}
-    <a data-ajax="false" href="{% url 'index_category' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех групп"></a>
+    <a data-ajax="false" href="{% url 'detail_category' pk=category.id %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к группe '{{ category.name }}'"></a>
     <h6>Редактирование группы</h6>
 {% endblock toolbar %}
 
 {% block content %}
     <form method="POST">
         <label for="id_name" class="form-label">Название группы:</label>
-        <input type="text" name="name" id="id_name" value="{{ category.name }}" maxlength="128" class="form-input">
-
+        <input type="text" name="name" id="id_name" value="{{ category.name }}" maxlength="128">
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}
+        <br/>
 
         <button class="ui-btn ui-corner-all form-submit-button" type="submit">Сохранить изменения</button>
     </form>

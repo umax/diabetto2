@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 
-from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from django.views.generic import DetailView, CreateView, DeleteView, UpdateView
 
-from diabetto.mixins import AjaxableResponseMixin
-
+from . import forms
 from . import models
+
+from category import models as category_models
 
 __all__ = (
     'ProductDetailView',
@@ -22,17 +23,27 @@ class ProductDetailView(DetailView):
     template_name = 'product/detail.html'
 
 
-class ProductCreateView(AjaxableResponseMixin, CreateView):
-    model = models.Product
-    fields = ['name', 'carbohydrates', 'glycemic_index', 'category']
+class ProductCreateView(CreateView):
+    form_class = forms.ProductForm
+    template_name = 'product/create.html'
 
     def get_success_url(self):
         return reverse('detail_category',
                        kwargs={'pk': self.object.category.id})
 
+    def get_context_data(self, **kwargs):
+        context = super(ProductCreateView, self).get_context_data(**kwargs)
+        category = get_object_or_404(category_models.Category,
+                                     pk=self.request.GET['category_id'])
 
-class ProductUpdateView(AjaxableResponseMixin, UpdateView):
+        context['category'] = category
+        return context
+
+
+class ProductUpdateView(UpdateView):
     model = models.Product
+    context_object_name = 'product'
+    template_name = 'product/update.html'
     fields = ['name', 'carbohydrates', 'glycemic_index']
 
     def get_success_url(self):
@@ -42,16 +53,8 @@ class ProductUpdateView(AjaxableResponseMixin, UpdateView):
 class ProductDeleteView(DeleteView):
     model = models.Product
     context_object_name = 'product'
+    template_name = 'product/delete.html'
 
-    def get(self, request, *args, **kwargs):
-        """
-        Calls the delete() method on the fetched object and then
-        redirects to the success URL.
-        """
-        self.object = self.get_object()
-        success_url = reverse('detail_category',
-                              kwargs={'pk': self.object.category.id})
-        self.object.delete()
-        return HttpResponseRedirect(success_url)
-
-
+    def get_success_url(self):
+        return reverse('detail_category',
+                       kwargs={'pk': self.object.category.id})

@@ -12,6 +12,6 @@ urlpatterns = patterns('',
         name='update_product'),
     url(r'^(?P<pk>\d+)/$', views.ProductDetailView.as_view(),
         name='detail_product'),
-    url(r'^create/$', views.ProductCreateView.as_view(),
+    url(r'^create/', views.ProductCreateView.as_view(),
         name='create_product'),
 )

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'detail_product' pk=product.id %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к продукту '{{ product.name }}'"></a>
+    <h6>Редактирование продукта</h6>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <label for="id_name" class="form-label">Название продукта:</label>
+        <input type="text" name="name" id="id_name" value="{{ product.name }}" maxlength="128">
+        {% if form.name.errors %}
+            {{ form.name.errors }}
+        {% endif %}
+        <br/>
+
+        <label for="id_carbohydrates" class="form-label">Углеводы (в 100г):</label>
+        <input type="text" name="carbohydrates" id="id_carbohydrates" value="{{ product.carbohydrates }}" maxlength="3">
+        <br/>
+
+        <label for="id_glycemic_index" class="form-label">Гликемический индекс:</label>
+        <input type="text" name="glycemic_index" id="id_glycemic_index" value="{{ product.glycemic_index }}" maxlength="3">
+        <br/>
+
+        <input type="hidden" name="category" id="id_category" value="{{ product.category.id }}">
+        <br/>
+
+        <button class="ui-btn ui-corner-all" type="submit">Сохранить изменения</button>
+    </form>
+{% endblock content %}

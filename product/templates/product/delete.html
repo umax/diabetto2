@@ -1,0 +1,15 @@
+ {% extends 'base.html' %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'detail_product' pk=product.id %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к продукту '{{ product.name }}'"></a>
+    <h6>Удаление продукта</h6>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <label>Продукт "{{ product.name }}" будет удален из базы. Все равно удалить?</label>
+        <br/>
+
+        <button class="ui-btn ui-corner-all" type="submit">Удалить</button>
+    </form>
+{% endblock content %}
