@@ -7,6 +7,7 @@ __all__ = (
     'Category',
 )
 
+
 class Category(models.Model):
     name = models.CharField(
         max_length=128,

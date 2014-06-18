@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'diabetto',
     'category',
     'product',
+    'dish',
     'south',
 )
 

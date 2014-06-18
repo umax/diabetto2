@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    <a style="height: 40px; font-size:28px;" href="{% url 'index_dish' %}" class="ui-btn ui-corner-all" data-ajax="false">Блюда</a>
     <a style="height: 40px; font-size:28px;" href="{% url 'index_category' %}" class="ui-btn ui-corner-all" data-ajax="false">Продукты</a>
 {% endblock content %}

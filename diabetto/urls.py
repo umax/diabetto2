@@ -10,5 +10,6 @@ urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^category/', include('category.urls')),
     url(r'^product/', include('product.urls')),
+    url(r'^dish/', include('dish.urls')),
     url(r'^$',  views.IndexView.as_view(), name='index'),
 )
