@@ -3,22 +3,24 @@
 {% block toolbar %}
     <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
     <h6>Новое блюдо</h6>
+    <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
 {% endblock toolbar %}
 
 {% block content %}
     <form method="POST">
-        <label for="id_name" class="form-label">Название блюда:</label>
+        <label for="id_name">Название блюда:</label>
         <input type="text" name="name" id="id_name" value="" maxlength="128">
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}
         <br/>
 
-        <label for="id_portions" class="form-label">Количество порций:</label>
+        <label for="id_portions">Количество порций:</label>
         <input type="range" name="portions" id="id_portions" value="4" min="2" max="10">
-        {% if form.portions.errors %}
-            {{ form.portions.errors }}
-        {% endif %}
+        <br/><br/>
+
+        <label>Продукты:</label>
+        <ul id="#products" data-role="listview" data-inset="true"></ul>
         <br/>
 
         <button class="ui-btn ui-corner-all" type="submit">Создать</button>
