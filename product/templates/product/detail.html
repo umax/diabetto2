@@ -10,23 +10,21 @@
 {% endblock toolbar %}
 
 {% block content %}
-    <form>
-        <ul data-role="listview" data-inset="true">
-            <li class="ui-field-contain">
-                <label>Название: <span><b>{{ product.name }}</b></span></label>
-            </li>
+    <ul data-role="listview" data-inset="true">
+        <li class="ui-field-contain">
+            <label>Название: <span><b>{{ product.name }}</b></span></label>
+        </li>
 
-            <li class="ui-field-contain">
-                <label>Углеводы: <span><b>{{ product.carbohydrates }}</b></span></label>
-            </li>
+        <li class="ui-field-contain">
+            <label>Углеводы: <span><b>{{ product.carbohydrates }}</b></span></label>
+        </li>
 
-            <li class="ui-field-contain">
-                <label>1 ХЕ продукта: <span><b>{{ product.cu_product }} г.</b></span></label>
-            </li>
+        <li class="ui-field-contain">
+            <label>1 ХЕ продукта: <span><b>{{ product.cu_product }} г.</b></span></label>
+        </li>
 
-            <li class="ui-field-contain">
-                <label>Гликемический индекс: <span><b>{{ product.glycemic_index }}</b></span></label>
-            </li>
-        </ul>
-    </form>
+        <li class="ui-field-contain">
+            <label>Гликемический индекс: <span><b>{{ product.glycemic_index }}</b></span></label>
+        </li>
+    </ul>
 {% endblock content %}

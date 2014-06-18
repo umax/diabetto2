@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
+    <h1>{{ dish.name }}</h1>
+{% endblock toolbar %}
+
+{% block content %}
+    <ul data-role="listview" data-inset="true">
+        <li class="ui-field-contain">
+            <label>Название: <span><b>{{ dish.name }}</b></span></label>
+        </li>
+
+        <li class="ui-field-contain">
+            <label>Количество порций: <span><b>{{ dish.portions }}</b></span></label>
+        </li>
+    </ul>
+{% endblock content %}

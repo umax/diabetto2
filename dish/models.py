@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.db import models
+from django.core.urlresolvers import reverse
 
 __all__ = (
     'Dish',
@@ -20,3 +21,6 @@ class Dish(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('detail_dish', kwargs={'pk': self.pk})
