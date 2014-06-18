@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
+    <h6>Новое блюдо</h6>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <label for="id_name" class="form-label">Название блюда:</label>
+        <input type="text" name="name" id="id_name" value="" maxlength="128">
+        {% if form.name.errors %}
+            {{ form.name.errors }}
+        {% endif %}
+        <br/>
+
+        <label for="id_portions" class="form-label">Количество порций:</label>
+        <input type="range" name="portions" id="id_portions" value="4" min="2" max="10">
+        {% if form.portions.errors %}
+            {{ form.portions.errors }}
+        {% endif %}
+        <br/>
+
+        <button class="ui-btn ui-corner-all" type="submit">Создать</button>
+    </form>
+{% endblock content %}

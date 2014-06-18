@@ -67,3 +67,7 @@ form button {
 .ui-header .ui-title, .ui-footer .ui-title {
     margin: 0 10%;
 }
+
+.ui-slider input {
+    height: 26px;
+}
