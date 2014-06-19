@@ -17,24 +17,25 @@ form button {
 }
 
 .js-list-item-title {
-    font-size: 22px !important;
+    font-size: 28px !important;
+    margin: .25em 0 !important;
 }
 
-.js-simple-text {
-    font-size: 22px;
+.js-list-item-comment {
+    font-size: 16px !important;
 }
 
 .ui-header {
-    height: 72px;
-    font-size: 26px;
+    height: 76px;
+    font-size: 28px;
 }
 
 .ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {
-    width: 55px;
-    height: 55px;
+    width: 58px;
+    height: 58px;
 }
 
-.ui-header .ui-btn-inner .ui-icon{
+с .ui-btn-inner .ui-icon{
     margin: 0px;
     border-radius: 0;
 }
@@ -51,8 +52,8 @@ form button {
 
 .ui-input-search {
     height: 52px;
-    line-height:56px;
-    font-size: 24px;
+    line-height:52px;
+    font-size: 34px;
 }
 
 .ui-corner-all {
@@ -70,4 +71,27 @@ form button {
 
 .ui-slider input {
     height: 26px;
+}
+
+/* Increase button size in header */
+.ui-header .ui-btn-icon-notext:after,
+.ui-header .ui-btn-icon-top:after,
+.ui-header .ui-btn-icon-bottom:after {
+    margin-left: -30px;
+}
+.ui-header .ui-btn-icon-notext:after,
+.ui-header .ui-btn-icon-left:after,
+.ui-header .ui-btn-icon-right:after {
+    margin-top: -30px;
+}
+.ui-header .ui-btn-icon-left:after,
+.ui-header .ui-btn-icon-right:after,
+.ui-header .ui-btn-icon-top:after,
+.ui-header .ui-btn-icon-bottom:after,
+.ui-header .ui-btn-icon-notext:after {
+    height: 60px;
+    width: 60px;
+}
+.ui-header .ui-icon-back:after {
+    background-size:35px 35px;
 }

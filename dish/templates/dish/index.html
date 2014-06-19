@@ -12,7 +12,7 @@
             <li>
                 <a class="js-list-item" href="{{ dish.get_absolute_url }}" data-ajax="false">
                     <h3 class="js-list-item-title">{{ dish.name }}</h3>
-                    <p>Порций: {{ dish.portions }}</p>
+                    <p class="js-list-item-comment">Порций: {{ dish.portions }}</p>
                 </a>
             </li>
         {% endfor %}

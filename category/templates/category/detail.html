@@ -17,7 +17,7 @@
                 <li>
                     <a class="js-list-item" href="{{ product.get_absolute_url }}" data-ajax="false">
                         <h3 class="js-list-item-title">{{ product.name }}</h3>
-                        <p>Углеводы: {{ product.carbohydrates }} г</p>
+                        <p class="js-list-item-comment">Углеводы: {{ product.carbohydrates }} г</p>
                     </a>
                 </li>
             {% endfor %}
