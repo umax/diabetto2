@@ -1,15 +1,16 @@
 label {
-    font-size: 22px !important;
+    font-size: 26px !important;
     height: 40px;
 }
 
 form input {
-    font-size: 22px !important;
+    font-size: 26px !important;
     height: 40px;
 }
 
 form button {
-    height: 70px;
+    height: 80px;
+    font-size: 26px !important;
 }
 
 .js-list-item {
@@ -17,25 +18,27 @@ form button {
 }
 
 .js-list-item-title {
-    font-size: 28px !important;
-    margin: .25em 0 !important;
+    font-size: 32px !important;
+    margin: .15em 0 !important;
 }
 
 .js-list-item-comment {
-    font-size: 16px !important;
+    font-size: 20px !important;
 }
 
 .ui-header {
-    height: 76px;
-    font-size: 28px;
+    height: 86px;
+    font-size: 30px;
 }
 
-.ui-header .ui-btn, .ui-header .ui-icon, .ui-header .ui-btn-inner {
-    width: 58px;
-    height: 58px;
+.ui-header .ui-btn,
+.ui-header .ui-icon,
+.ui-header .ui-btn-inner {
+    width: 70px;
+    height: 70px;
 }
 
-с .ui-btn-inner .ui-icon{
+.ui-btn-inner .ui-icon{
     margin: 0px;
     border-radius: 0;
 }
@@ -51,9 +54,9 @@ form button {
 }
 
 .ui-input-search {
-    height: 52px;
-    line-height:52px;
-    font-size: 34px;
+    height: 60px !important;
+    line-height: 60px !important;
+    font-size: 50px !important;
 }
 
 .ui-corner-all {
@@ -65,8 +68,11 @@ form button {
     color: red;
 }
 
-.ui-header .ui-title, .ui-footer .ui-title {
-    margin: 0 10%;
+.ui-header .ui-title.left-aligned,
+.ui-footer .ui-title.left-aligned {
+    margin: 0 15%;
+    text-align: left;
+    padding-left: 10px;
 }
 
 .ui-slider input {
@@ -77,21 +83,24 @@ form button {
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-top:after,
 .ui-header .ui-btn-icon-bottom:after {
-    margin-left: -30px;
+    margin-left: -35px;
 }
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-left:after,
 .ui-header .ui-btn-icon-right:after {
-    margin-top: -30px;
+    margin-top: -35px;
 }
 .ui-header .ui-btn-icon-left:after,
 .ui-header .ui-btn-icon-right:after,
 .ui-header .ui-btn-icon-top:after,
 .ui-header .ui-btn-icon-bottom:after,
 .ui-header .ui-btn-icon-notext:after {
-    height: 60px;
-    width: 60px;
+    height: 70px;
+    width: 70px;
 }
-.ui-header .ui-icon-back:after {
-    background-size:35px 35px;
+.ui-header .ui-icon-back:after,
+.ui-header .ui-icon-plus:after,
+.ui-header .ui-icon-edit:after,
+.ui-header .ui-icon-delete:after {
+    background-size: 35px 35px;
 }

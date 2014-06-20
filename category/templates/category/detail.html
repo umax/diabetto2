@@ -2,7 +2,7 @@
 
 {% block toolbar %}
     <a data-ajax="false" href="{% url 'index_category' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех групп"></a>
-    <h6>Группа "{{ category.name }}"</h6>
+    <h6 class="left-aligned">Группа "{{ category.name }}"</h6>
     <div class="ui-btn-right">
         <a href="{% url 'create_product' %}?category_id={{ category.id }}" class="ui-btn ui-corner-all ui-icon-plus ui-btnui-btn-icon-left ui-btn-icon-notext" title="Добавить продукт в эту группу"></a>&nbsp;&nbsp;&nbsp;
         <a href="{% url 'update_category' pk=category.id %}" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" title="Редактировать эту группу"></a>&nbsp;
