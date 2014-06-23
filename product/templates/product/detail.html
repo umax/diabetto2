@@ -4,8 +4,8 @@
     <a data-ajax="false" href="{% url 'detail_category' pk=product.category.pk %}" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех продуктов группы"></a>
     <h1>Продукт "{{ product.name }}"</h1>
     <div class="ui-btn-right">
-        <a href="{% url 'update_product' pk=product.id %}" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" title="Редактировать этот продукт"></a>&nbsp;
-        <a href="{% url 'delete_product' pk=product.pk %}" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext" title="Удалить этот продукт из базы"></a>
+        <a data-ajax="false" href="{% url 'update_product' pk=product.id %}" class="ui-btn ui-corner-all ui-icon-edit ui-btn-icon-notext" title="Редактировать этот продукт"></a>&nbsp;
+        <a data-ajax="false" href="{% url 'delete_product' pk=product.pk %}" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext" title="Удалить этот продукт из базы"></a>
     </div>
 {% endblock toolbar %}
 

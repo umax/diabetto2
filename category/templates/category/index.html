@@ -3,7 +3,7 @@
 {% block toolbar %}
     <a data-ajax="false" href="/" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться в главное меню"></a>
     <h6>Группы продуктов</h6>
-    <a href="{% url 'create_category' %}" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новую группу в базу"></a>
+    <a data-ajax="false" href="{% url 'create_category' %}" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новую группу в базу"></a>
 {% endblock toolbar %}
 
 {% block content %}

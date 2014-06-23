@@ -26,6 +26,9 @@ class Product(models.Model):
         verbose_name = u'Продукт'
         verbose_name_plural = u'продукты'
 
+    def __unicode__(self):
+        return u'%s in %s' % (self.name, self.category)
+
     def get_absolute_url(self):
         return reverse('detail_product', kwargs={'pk': self.pk})
 

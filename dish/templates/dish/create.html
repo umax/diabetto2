@@ -1,9 +1,19 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
+{% endblock css %}
+
+{% block js %}
+    <script src="{% static 'dish/js/selectmenu.js' %}"></script>
+        <script src="{% static 'dish/js/create.js' %}"></script>
+{% endblock js %}
 
 {% block toolbar %}
     <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
     <h6>Новое блюдо</h6>
-    <a href="#" class="ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
+    <a href="#" class="js-button-add-product ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
 {% endblock toolbar %}
 
 {% block content %}
@@ -24,5 +34,11 @@
         <br/>
 
         <button class="ui-btn ui-corner-all" type="submit">Создать</button>
+
+        <select id="filter-menu" data-native-menu="false">
+            {% for product in products %}
+                <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
     </form>
-{% endblock content %}
+{% endblock content %}2
