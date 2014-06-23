@@ -1,12 +1,46 @@
-(function($) {
+(function($, _) {
     var selectorButtonAddProduct = '.js-button-add-product',
-        selectorFilterMenu = '#filter-menu';
+        selectorButtonRemoveProduct = '.remove-product-button',
+        selectorFilterMenu = '#filter-menu',
+        selectorProductsList = '#products-list',
+
+        productTemplate = null,
+        productsList = null;
+
+
+    function onFilterMenuChange(event) {
+        /* Add selected product to products list */
+
+        var productId = $(this).val(),
+            productName = $(this).find("option:selected").text(),
+            productEl = $(productTemplate({
+                'productId': productId,
+                'productName': productName
+            }));
+
+        productsList.append(productEl).listview('refresh');
+    }
+
+
+    function onAddProductButtonClick(event) {
+        $(selectorFilterMenu).selectmenu("open");
+    }
+
+
+    function onRemoveProductButtonClick(event) {
+        $(this).parent('li').remove();
+        productsList.listview('refresh');
+    }
 
 
     $(document).ready(function() {
-        $(selectorButtonAddProduct).click(function() {
-            $(selectorFilterMenu).selectmenu("open");
-        });
+        $(selectorButtonAddProduct).click(onAddProductButtonClick);
+        $(selectorFilterMenu).change(onFilterMenuChange);
+        $(document).on('click', selectorButtonRemoveProduct,
+                       onRemoveProductButtonClick);
+
+        productsList = $(selectorProductsList);
+        productTemplate = _.template($('#product-template').text());
     });
 
-})(jQuery);
+})(jQuery, _);

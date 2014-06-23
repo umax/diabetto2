@@ -3,11 +3,13 @@
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'dish/css/dish.css' %}" />
 {% endblock css %}
 
 {% block js %}
+    <script src="{% static 'js/underscore.js' %}"></script>
     <script src="{% static 'dish/js/selectmenu.js' %}"></script>
-        <script src="{% static 'dish/js/create.js' %}"></script>
+    <script src="{% static 'dish/js/create.js' %}"></script>
 {% endblock js %}
 
 {% block toolbar %}
@@ -30,7 +32,8 @@
         <br/><br/>
 
         <label>Продукты:</label>
-        <ul id="#products" data-role="listview" data-inset="true"></ul>
+        <ul id="products-list" data-role="listview" data-inset="true">
+        </ul>
         <br/>
 
         <button class="ui-btn ui-corner-all" type="submit">Создать</button>
@@ -41,4 +44,16 @@
             {% endfor %}
         </select>
     </form>
-{% endblock content %}2
+{% endblock content %}
+
+{% block hidden_content %}
+    <script id="product-template" type="text/template">
+        <li>
+            <%= productName %>
+            <div class="remove-product-button">
+                <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></a>
+            </div>
+            <input name="product" type="hidden" id="id_product_<%= productId %>" value="<%= productId %>" />
+        </li>
+    </script>
+{% endblock hidden_content %}
