@@ -28,7 +28,7 @@
 
 
     function onRemoveProductButtonClick(event) {
-        $(this).parent('li').remove();
+        $(this).closest('li').remove();
         productsList.listview('refresh');
     }
 

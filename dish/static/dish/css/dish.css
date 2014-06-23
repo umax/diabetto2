@@ -1,9 +1,30 @@
 #products-list {
-    font-size: 25px;
-    line-height: 50px !important;
+    font-size: 28px;
+    line-height: 60px !important;
+}
+
+#products-list li {
+    text-align: left;
 }
 
 .remove-product-button {
-    display: inline-block;
     float: right;
+    display: inline-block;
+    margin-left: 30px;
+}
+
+.product-weight-field {
+    float: left;
+    display: inline-block;
+    width: 100px !important;
+    margin: 0;
+}
+
+.control-container {
+    float: right;
+    width: 180px;
+}
+
+.ui-listview>.ui-li-static {
+    padding: .4em 1em;
 }
