@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from django.forms import ModelForm
-from dish.models import Dish
+from dish.models import Dish, Component
 
 __all__ = (
     'DishForm',
@@ -44,7 +44,13 @@ class DishForm(ModelForm):
         return cleaned_data
 
     def save_products(self, dish):
-        pass
+        dish.components.clear()
+
+        for product_id, weight in self.cleaned_data['weights'].iteritems():
+            Component.objects.create(
+                dish=dish,
+                weight=weight,
+                product_id=product_id)
 
     def save(self, *args, **kwargs):
         dish = super(DishForm, self).save(*args, **kwargs)
