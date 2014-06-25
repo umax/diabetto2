@@ -1,3 +1,8 @@
+.ui-content {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 label {
     font-size: 26px !important;
     height: 40px;
@@ -11,6 +16,20 @@ form input {
 form button {
     height: 80px;
     font-size: 26px !important;
+}
+
+.green-button {
+    background: PaleGreen !important;
+}
+.green-button:active {
+    background: LightGreen !important;
+}
+
+.red-button {
+    background: Salmon !important;
+}
+.red-button:active {
+    background: Tomato !important;
 }
 
 .js-list-item {
@@ -29,6 +48,7 @@ form button {
 .ui-header {
     height: 86px;
     font-size: 30px;
+    padding: 4px;
 }
 
 .ui-header .ui-btn,
@@ -43,20 +63,25 @@ form button {
     border-radius: 0;
 }
 
+.ui-header-fixed .ui-btn {
+    margin-top: 2px;
+}
+
 .ui-header-fixed .ui-btn-left {
-    margin-top: 3px;
-    margin-left: 9px;
+    margin-top: 6px;
+    margin-left: 8px;
 }
 
 .ui-header-fixed .ui-btn-right {
-    margin-top: 3px;
-    margin-right: 9px;
+    margin-top: 6px;
+    margin-right: 16px;
 }
 
 .ui-input-search {
     height: 60px !important;
     line-height: 60px !important;
     font-size: 50px !important;
+    margin-top: 8px;
 }
 
 .ui-corner-all {
