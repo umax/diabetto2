@@ -10,9 +10,9 @@
     <ul data-role="listview" data-filter="true" data-filter-placeholder="Искать блюдо ..." data-inset="true">
         {% for dish in dishes %}
             <li>
-                <a class="js-list-item" href="{{ dish.get_absolute_url }}" data-ajax="false">
+                <a class="js-list-item" href="{% url 'update_dish' pk=dish.id %}" data-ajax="false">
                     <h3 class="js-list-item-title">{{ dish.name }}</h3>
-                    <p class="js-list-item-comment">Порций: {{ dish.portions }}</p>
+                    <p class="js-list-item-comment">Продуктов: {{ dish.components.count}}, порций: {{ dish.portions }}</p>
                 </a>
             </li>
         {% endfor %}

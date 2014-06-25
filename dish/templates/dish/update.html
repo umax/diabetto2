@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
+    <link rel="stylesheet" href="{% static 'dish/css/dish.css' %}" />
+{% endblock css %}
+
+{% block js %}
+    <script src="{% static 'js/underscore.js' %}"></script>
+    <script src="{% static 'dish/js/selectmenu.js' %}"></script>
+    <script>
+        window.Diabetto = window.Diabetto || {};
+        window.Diabetto.dishProducts = {{ dish_products|safe }};
+    </script>
+    <script src="{% static 'dish/js/create.js' %}"></script>
+    <script src="{% static 'dish/js/update.js' %}"></script>
+{% endblock js %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
+    <h6>Редактирование блюда</h6>
+    <a href="#" class="js-button-add-product ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <label for="id_name">Название блюда:</label>
+        <input type="text" name="name" id="id_name" value="{{ dish.name }}" maxlength="128">
+        {% if form.name.errors %}
+            {{ form.name.errors }}
+        {% endif %}
+        <br/>
+
+        <label for="id_portions">Количество порций:</label>
+        <input type="range" name="portions" id="id_portions" value="{{ dish.portions }}" min="2" max="10">
+        <br/><br/>
+
+        <label>Продукты:</label>
+        <ul id="products-list" data-role="listview" data-inset="true">
+        </ul>
+        <br/>
+
+        <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
+
+        <select id="filter-menu" data-native-menu="false">
+            <option></option>
+            {% for product in products %}
+                <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
+            {% endfor %}
+        </select>
+    </form>
+{% endblock content %}
+
+{% block hidden_content %}
+    <script id="product-template" type="text/template">
+        <li>
+            <%= productName %>
+
+            <div class="control-container">
+                <div class="product-weight-field ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
+                    <input type="text" name="<%= productId %>_weight" id="id_<%= productId %>_weight" value="<%= productWeight %>" maxlength="3" />
+                </div>
+
+                <div class="remove-product-button">
+                    <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></a>
+                </div>
+            </div>
+        </li>
+    </script>
+{% endblock hidden_content %}

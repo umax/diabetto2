@@ -15,7 +15,8 @@
             productName = $(this).find("option:selected").text(),
             productEl = $(productTemplate({
                 'productId': productId,
-                'productName': productName
+                'productName': productName,
+                'productWeight': 0
             }));
 
         productsList.append(productEl).listview('refresh');
