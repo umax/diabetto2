@@ -48,19 +48,5 @@
 {% endblock content %}
 
 {% block hidden_content %}
-    <script id="product-template" type="text/template">
-        <li>
-            <%= productName %>
-
-            <div class="control-container">
-                <div class="product-weight-field ui-input-text ui-body-inherit ui-corner-all ui-shadow-inset">
-                    <input type="text" name="<%= productId %>_weight" id="id_<%= productId %>_weight" value="0" maxlength="3" />
-                </div>
-
-                <div class="remove-product-button">
-                    <a href="#" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-corner-all"></a>
-                </div>
-            </div>
-        </li>
-    </script>
+    {% include 'dish/_product.html' %}
 {% endblock hidden_content %}

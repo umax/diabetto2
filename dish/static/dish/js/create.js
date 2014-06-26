@@ -12,7 +12,13 @@
         /* Add selected product to products list */
 
         var productId = $(this).val(),
-            productName = $(this).find("option:selected").text(),
+            productAlreadyAdded = $('li[data-product-id=' + productId + ']').length;
+
+        if (productAlreadyAdded) {
+            return;
+        }
+
+        var productName = $(this).find("option:selected").text(),
             productEl = $(productTemplate({
                 'productId': productId,
                 'productName': productName,
