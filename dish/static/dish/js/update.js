@@ -12,6 +12,8 @@
             }));
             productsList.append(productEl).listview('refresh');
         });
+
+        global.Diabetto.Statistics.updateStatistics();
     });
 
 })(jQuery, _, window);

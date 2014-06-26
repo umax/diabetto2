@@ -32,3 +32,7 @@
 .ui-listview>.ui-li-static {
     padding: .4em 1em;
 }
+
+.statistics-value {
+    font-weight: bold;
+}

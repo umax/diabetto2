@@ -9,7 +9,8 @@
 {% block js %}
     <script src="{% static 'js/underscore.js' %}"></script>
     <script src="{% static 'dish/js/selectmenu.js' %}"></script>
-    <script src="{% static 'dish/js/create.js' %}"></script>
+    <script src="{% static 'dish/js/dish.js' %}"></script>
+    <script src="{% static 'dish/js/statistics.js' %}"></script>
 {% endblock js %}
 
 {% block toolbar %}
@@ -35,6 +36,10 @@
         <ul id="products-list" data-role="listview" data-inset="true">
         </ul>
         <br/>
+
+        <label>Статистика:</label>
+            {% include 'dish/_statistics.html' %}
+        <br/><br/>
 
         <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
 

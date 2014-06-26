@@ -13,7 +13,8 @@
         window.Diabetto = window.Diabetto || {};
         window.Diabetto.dishProducts = {{ dish_products|safe }};
     </script>
-    <script src="{% static 'dish/js/create.js' %}"></script>
+    <script src="{% static 'dish/js/dish.js' %}"></script>
+    <script src="{% static 'dish/js/statistics.js' %}"></script>
     <script src="{% static 'dish/js/update.js' %}"></script>
 {% endblock js %}
 
@@ -36,13 +37,17 @@
         <br/>
 
         <label for="id_portions">Количество порций:</label>
-        <input type="range" name="portions" id="id_portions" value="{{ dish.portions }}" min="2" max="10">
+        <input type="range" name="portions" id="id_portions" value="{{ dish.portions }}" min="1" max="10">
         <br/><br/>
 
         <label>Продукты:</label>
         <ul id="products-list" data-role="listview" data-inset="true">
         </ul>
         <br/>
+
+        <label>Статистика:</label>
+            {% include 'dish/_statistics.html' %}
+        <br/><br/>
 
         <button data-ajax="false" class="ui-btn ui-corner-all green-button" type="submit">Сохранить изменения</button>
 

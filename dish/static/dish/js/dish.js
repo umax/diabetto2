@@ -1,11 +1,26 @@
-(function($, _) {
-    var selectorButtonAddProduct = '.js-button-add-product',
+(function($, _, global) {
+    var selectorFilterMenu = '#filter-menu',
+        selectorButtonAddProduct = '.js-button-add-product',
         selectorButtonRemoveProduct = '.remove-product-button',
+
         selectorFilterMenu = '#filter-menu',
         selectorProductsList = '#products-list',
+        selectorProductWeightInput = '.product-weight-field input',
 
         productTemplate = null,
         productsList = null;
+
+
+    function onAddProductButtonClick(event) {
+        $(selectorFilterMenu).selectmenu("open");
+    }
+
+
+    function onRemoveProductButtonClick(event) {
+        $(this).closest('li').remove();
+        productsList.listview('refresh');
+        global.Diabetto.Statistics.updateStatistics();
+    }
 
 
     function onFilterMenuChange(event) {
@@ -26,28 +41,20 @@
             }));
 
         productsList.append(productEl).listview('refresh');
-    }
-
-
-    function onAddProductButtonClick(event) {
-        $(selectorFilterMenu).selectmenu("open");
-    }
-
-
-    function onRemoveProductButtonClick(event) {
-        $(this).closest('li').remove();
-        productsList.listview('refresh');
+        global.Diabetto.Statistics.updateStatistics();
     }
 
 
     $(document).ready(function() {
-        $(selectorButtonAddProduct).click(onAddProductButtonClick);
         $(selectorFilterMenu).change(onFilterMenuChange);
+        $(selectorButtonAddProduct).click(onAddProductButtonClick);
         $(document).on('click', selectorButtonRemoveProduct,
                        onRemoveProductButtonClick);
+        $(document).on('input', selectorProductWeightInput,
+                       global.Diabetto.Statistics.updateStatistics);
 
         productsList = $(selectorProductsList);
         productTemplate = _.template($('#product-template').text());
     });
 
-})(jQuery, _);
+})(jQuery, _, window);
