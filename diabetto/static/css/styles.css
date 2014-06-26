@@ -107,6 +107,10 @@ form button {
 .ui-slider input {
     height: 30px;
 }
+.ui-slider-track {
+    height: 10px;
+    margin-top: 8px;
+}
 
 /* Increase button size in header */
 .ui-header .ui-btn-icon-notext:after,
