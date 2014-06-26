@@ -12,12 +12,10 @@
 
         <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
         <script src="{% static 'js/jquery.mobile-1.4.0.min.js' %}"></script>
-        {% block js %}
-        {% endblock js %}
     </head>
 
     <body>
-        <div data-role="page">  
+        <div data-role="page">
             <div data-role="header" data-position="fixed">
                 {% block toolbar %}
                     <h1>Diabetto</h1>
@@ -30,6 +28,10 @@
             </div>
         </div>
     </body>
+
     {% block hidden_content %}
     {% endblock hidden_content %}
+
+    {% block js %}
+    {% endblock js %}
 </html>

@@ -24,7 +24,7 @@
 {% endblock toolbar %}
 
 {% block content %}
-    <form method="POST">
+    <form method="POST" data-ajax="false">
         <label for="id_name">Название блюда:</label>
         <input type="text" name="name" id="id_name" value="{{ dish.name }}" maxlength="128">
         {% if form.name.errors %}
@@ -41,11 +41,11 @@
         </ul>
         <br/>
 
-        <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
+        <button data-ajax="false" class="ui-btn ui-corner-all green-button" type="submit">Сохранить изменения</button>
 
         <select id="filter-menu" data-native-menu="false">
             <option></option>
-            {% for product in products %}
+            {% for product in all_products %}
                 <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
             {% endfor %}
         </select>

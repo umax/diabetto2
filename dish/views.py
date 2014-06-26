@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from django.utils import simplejson as json
+import json
+
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView, CreateView, UpdateView
@@ -41,18 +42,26 @@ class DishUpdateView(UpdateView):
     context_object_name = 'dish'
     template_name = 'dish/update.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(DishUpdateView, self).get_context_data(**kwargs)
-        context['products'] = list(product_models.Product.objects.all())
+    def get_all_products(self):
+        return product_models.Product.objects.all()
 
+    def get_dish_products(self):
         dish_products = []
-        for component in self.object.component_set.all():
+        for component in self.get_object().component_set.all():
             dish_products.append({
-                'name': component.product.name,
                 'id': component.product.id,
+                'name': component.product.name,
                 'weight': component.weight
             })
-        context['dish_products'] = json.dumps(dish_products)
+
+        return dish_products
+
+    def get_context_data(self, **kwargs):
+        context = super(DishUpdateView, self).get_context_data(**kwargs)
+        context.update({
+            'all_products': self.get_all_products(),
+            'dish_products': json.dumps(self.get_dish_products()),
+        })
 
         return context
 
