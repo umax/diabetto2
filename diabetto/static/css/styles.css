@@ -100,6 +100,10 @@ form button {
     padding-left: 10px;
 }
 
+.ui-header .ui-title {
+    margin: 0 10%;
+}
+
 .ui-slider input {
     height: 30px;
 }

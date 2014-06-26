@@ -12,6 +12,10 @@
     display: inline-block;
     margin-left: 30px;
 }
+.remove-product-button a {
+        width: 40px;
+    height: 40px;
+}
 
 .product-weight-field {
     float: left;
@@ -22,7 +26,7 @@
 
 .control-container {
     float: right;
-    width: 180px;
+    width: 190px;
 }
 
 .ui-listview>.ui-li-static {
