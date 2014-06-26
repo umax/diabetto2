@@ -18,9 +18,12 @@
 {% endblock js %}
 
 {% block toolbar %}
-    <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
+    <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
     <h6>Редактирование блюда</h6>
-    <a href="#" class="js-button-add-product ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
+    <div class="ui-btn-right">
+        <a href="#" class="js-button-add-product ui-btn ui-corner-all ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a data-ajax="false" href="{% url 'delete_dish' pk=dish.id %}" class="ui-btn ui-corner-all ui-icon-delete ui-btn-icon-notext" title="Удалить это блюдо из базы"></a>
+    </div>
 {% endblock toolbar %}
 
 {% block content %}

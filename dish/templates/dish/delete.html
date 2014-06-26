@@ -1,0 +1,15 @@
+ {% extends 'base.html' %}
+
+{% block toolbar %}
+    <a data-ajax="false" href="{% url 'update_dish' pk=dish.id %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к блюду '{{ category.name }}'"></a>
+    <h6>Удаление блюда</h6>
+{% endblock toolbar %}
+
+{% block content %}
+    <form method="POST">
+        <label>Блюдо "{{ dish.name }}" будeт удалено из базы. Все равно удалить?</label>
+        <br/><br/>
+
+        <button class="ui-btn ui-corner-all red-button" type="submit">Удалить</button>
+    </form>
+{% endblock content %}

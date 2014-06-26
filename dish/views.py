@@ -4,7 +4,7 @@ import json
 
 from django.core.urlresolvers import reverse
 from django.core.urlresolvers import reverse_lazy
-from django.views.generic import ListView, CreateView, UpdateView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 
 from . import forms
 from . import models as dish_models
@@ -15,6 +15,7 @@ __all__ = (
     'DishIndexView',
     'DishCreateView',
     'DishUpdateView',
+    'DishDeleteView',
 )
 
 
@@ -67,3 +68,10 @@ class DishUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('update_dish', kwargs={'pk': self.object.id})
+
+
+class DishDeleteView(DeleteView):
+    model = dish_models.Dish
+    context_object_name = 'dish'
+    template_name = 'dish/delete.html'
+    success_url = reverse_lazy('index_dish')
