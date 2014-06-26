@@ -22,3 +22,10 @@
 .ui-selectmenu-list.ui-listview li a {
     font-size: 25px !important;
 }
+.ui-selectmenu-list.ui-listview li.ui-first-child a {
+    font-size: 0px !important;
+}
+.ui-selectmenu.ui-popup .ui-input-search {
+    margin: .2em;
+    margin-bottom: .3em;
+}
