@@ -1,20 +1,8 @@
-{% extends 'base.html' %}
+{% extends 'dish/base.html' %}
 {% load staticfiles %}
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
-    <link rel="stylesheet" href="{% static 'dish/css/dish.css' %}" />
-{% endblock css %}
-
 {% block js %}
-    <script src="{% static 'js/underscore.js' %}"></script>
-    <script src="{% static 'dish/js/selectmenu.js' %}"></script>
-    <script>
-        window.Diabetto = window.Diabetto || {};
-        window.Diabetto.dishProducts = {{ dish_products|safe }};
-    </script>
-    <script src="{% static 'dish/js/dish.js' %}"></script>
-    <script src="{% static 'dish/js/statistics.js' %}"></script>
+    {{ block.super }}
     <script src="{% static 'dish/js/update.js' %}"></script>
 {% endblock js %}
 
@@ -51,15 +39,7 @@
 
         <button data-ajax="false" class="ui-btn ui-corner-all green-button" type="submit">Сохранить изменения</button>
 
-        <select id="filter-menu" data-native-menu="false">
-            <option></option>
-            {% for product in all_products %}
-                <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
-            {% endfor %}
-        </select>
+        {% include 'dish/_products_menu.html' %}
     </form>
 {% endblock content %}
 
-{% block hidden_content %}
-    {% include 'dish/_product.html' %}
-{% endblock hidden_content %}

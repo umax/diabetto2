@@ -1,17 +1,4 @@
-{% extends 'base.html' %}
-{% load staticfiles %}
-
-{% block css %}
-    <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
-    <link rel="stylesheet" href="{% static 'dish/css/dish.css' %}" />
-{% endblock css %}
-
-{% block js %}
-    <script src="{% static 'js/underscore.js' %}"></script>
-    <script src="{% static 'dish/js/selectmenu.js' %}"></script>
-    <script src="{% static 'dish/js/dish.js' %}"></script>
-    <script src="{% static 'dish/js/statistics.js' %}"></script>
-{% endblock js %}
+{% extends 'dish/base.html' %}
 
 {% block toolbar %}
     <a data-ajax="false" href="{% url 'index_dish' %}" class="ui-btn-left ui-btn ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-back ui-btn-icon-notext" title="Вернуться к списку всех блюд"></a>
@@ -43,15 +30,6 @@
 
         <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
 
-        <select id="filter-menu" data-native-menu="false">
-            <option></option>
-            {% for product in products %}
-                <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
-            {% endfor %}
-        </select>
+        {% include 'dish/_products_menu.html' %}
     </form>
 {% endblock content %}
-
-{% block hidden_content %}
-    {% include 'dish/_product.html' %}
-{% endblock hidden_content %}

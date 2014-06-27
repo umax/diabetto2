@@ -27,6 +27,7 @@
         /* Add selected product to products list */
 
         var productId = $(this).val(),
+            productCarbohydrates = $(this).data('data-product-carbohydrates'),
             productAlreadyAdded = $('li[data-product-id=' + productId + ']').length;
 
         if (productAlreadyAdded) {
@@ -37,7 +38,8 @@
             productEl = $(productTemplate({
                 'productId': productId,
                 'productName': productName,
-                'productWeight': 0
+                'productWeight': 0,
+                'productCarbohydrates': productCarbohydrates
             }));
 
         productsList.append(productEl).listview('refresh');
