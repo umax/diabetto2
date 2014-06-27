@@ -3,14 +3,32 @@
         selectorStatisticsWeight = '#statistics-weight',
         selectorCarbohydrateUnits = '#statistics-carbohydrate-units',
         selectorProductLi = 'li[data-product-id]',
-        selectorProductsList = '#products-list';
+        selectorProductsList = '#products-list',
+        selectorCarbohydrateUnitsPerPortion = '#statistics-carbohydrate-units-in-portion',
+        selectorPortonsInput = '#id_portions';
 
 
     global.Diabetto = global.Diabetto || {};
     global.Diabetto.Statistics = {
         updateStatistics: function() {
-            updateStatisticsWeight();
-            updateStatisticsCarbohydrateUnits();
+            Statistics = global.Diabetto.Statistics;
+
+            Statistics.updateStatisticsWeight();
+            Statistics.updateStatisticsCarbohydrateUnits();
+            Statistics.updateStatisticsCarbohydratePerPortion();
+        },
+
+        updateStatisticsWeight: function() {
+            $(selectorStatisticsWeight).html(getProductsWeight() + ' г.');
+        },
+
+        updateStatisticsCarbohydrateUnits: function() {
+            $(selectorCarbohydrateUnits).html(getCarbohydrateUnits().toFixed(2));
+        },
+
+        updateStatisticsCarbohydratePerPortion: function() {
+            $(selectorCarbohydrateUnitsPerPortion).html(
+                getCarbohydrateUnitsPerPortion().toFixed(2));
         }
     };
 
@@ -30,8 +48,9 @@
         return weight;
     }
 
+
     function getCarbohydrateUnits() {
-        /* Calculate all added products carbohydrates */
+        /* Calculate all added products carbohydrates units */
 
         var carbohydrateUnits = 0.0,
             productId,
@@ -50,12 +69,13 @@
     }
 
 
-    function updateStatisticsWeight() {
-        $(selectorStatisticsWeight).html(getProductsWeight() + ' г.');
-    }
+    function getCarbohydrateUnitsPerPortion() {
+        /* Calculate all added products carbohydrate units per portion */
 
-    function updateStatisticsCarbohydrateUnits() {
-        $(selectorCarbohydrateUnits).html(getCarbohydrateUnits().toFixed(2));
+        var carbohydrateUnits = getCarbohydrateUnits(),
+            portions = parseInt($(selectorPortonsInput).val());
+
+        return carbohydrateUnits / portions;
     }
 
 })(jQuery, _, window);

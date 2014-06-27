@@ -36,3 +36,8 @@
 .statistics-value {
     font-weight: bold;
 }
+.product-name {
+    width: 200px;
+    display: inline-block;
+    text-overflow: clip;
+}

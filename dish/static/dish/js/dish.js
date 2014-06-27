@@ -5,6 +5,7 @@
 
         selectorFilterMenu = '#filter-menu',
         selectorProductsList = '#products-list',
+        selectorPotionsInput = '#id_portions',
         selectorProductWeightInput = '.product-weight-field input',
 
         productTemplate = null,
@@ -54,6 +55,8 @@
                        onRemoveProductButtonClick);
         $(document).on('input', selectorProductWeightInput,
                        global.Diabetto.Statistics.updateStatistics);
+        $(selectorPotionsInput).change(global.
+            Diabetto.Statistics.updateStatisticsCarbohydratePerPortion);
 
         productsList = $(selectorProductsList);
         productTemplate = _.template($('#product-template').text());
