@@ -2,8 +2,9 @@
 {% load staticfiles %}
 
 {% block js %}
-    {{ block.super }}
-    <script src="{% static 'dish/js/update.js' %}"></script>
+    {% assets "dish_update_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 {% endblock js %}
 
 {% block toolbar %}

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
+{% load assets %}
 
 {% block css %}
     <link rel="stylesheet" href="{% static 'dish/css/selectmenu.css' %}" />
@@ -10,17 +11,15 @@
 {% endblock toolbar %}
 
 {% block js %}
-    <script src="{% static 'js/underscore.js' %}"></script>
-    <script src="{% static 'dish/js/selectmenu.js' %}"></script>
-
     <script>
         window.Diabetto = window.Diabetto || {};
         window.Diabetto.allProducts = {{ json_all_products|safe }};
         window.Diabetto.dishProducts = {{ json_dish_products|safe }};
     </script>
 
-    <script src="{% static 'dish/js/statistics.js' %}"></script>
-    <script src="{% static 'dish/js/dish.js' %}"></script>
+    {% assets "dish_base_js" %}
+        <script type="text/javascript" src="{{ ASSET_URL }}"></script>
+    {% endassets %}
 {% endblock js %}
 
 {% block content %}

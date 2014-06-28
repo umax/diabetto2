@@ -21,7 +21,7 @@ SECRET_KEY = '4wby4lluj#!p+dj)et8-_wx=izdm!y@54%6$0jjs-jjd-kd2qp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
+ASSETS_DEBUG = True
 TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = []
@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'product',
     'dish',
     'south',
+	'django_assets',
 )
 
 MIDDLEWARE_CLASSES = (
