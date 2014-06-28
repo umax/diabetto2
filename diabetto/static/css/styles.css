@@ -1,118 +1,38 @@
-.ui-content {
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-label {
-    font-size: 26px !important;
-    height: 40px;
-}
-
-form input {
-    font-size: 26px !important;
-    height: 40px;
-}
-
-form button {
-    height: 100px;
-    font-size: 26px !important;
-}
-
-.green-button {
-    background: PaleGreen !important;
-}
-.green-button:active {
-    background: LightGreen !important;
-}
-
-.red-button {
-    background: Salmon !important;
-}
-.red-button:active {
-    background: Tomato !important;
-}
-
-.js-list-item {
-    padding: .2em 1em;
-}
-
-.js-list-item-title {
-    font-size: 32px !important;
-    margin: .20em 0 !important;
-}
-
-.js-list-item-comment {
-    font-size: 20px !important;
-}
-
+/* header */
 .ui-header {
     height: 86px;
     font-size: 30px;
     padding: 4px;
 }
+.ui-header .ui-title {
+    margin: 0 10%;
+}
 
+
+/* header buttons */
 .ui-header .ui-btn,
 .ui-header .ui-icon,
 .ui-header .ui-btn-inner {
     width: 70px;
     height: 70px;
 }
-
-.ui-btn-inner .ui-icon{
-    margin: 0px;
-    border-radius: 0;
-}
-
 .ui-header-fixed .ui-btn {
     margin-top: 2px;
 }
-
 .ui-header-fixed .ui-btn-left {
     margin-top: 6px;
     margin-left: 8px;
 }
-
 .ui-header-fixed .ui-btn-right {
     margin-top: 6px;
     margin-right: 16px;
 }
-
-.ui-input-search {
-    height: 60px !important;
-    line-height: 60px !important;
-    font-size: 50px !important;
-    margin-top: 8px;
-}
-
-.ui-corner-all {
-    -webkit-border-radius: .6125em;
-    border-radius: .6125em;
-}
-
-.errorlist li {
-    color: red;
-}
-
 .ui-header .ui-title.left-aligned,
 .ui-footer .ui-title.left-aligned {
     margin: 0 15%;
     text-align: left;
     padding-left: 10px;
 }
-
-.ui-header .ui-title {
-    margin: 0 10%;
-}
-
-.ui-slider input {
-    height: 30px;
-}
-.ui-slider-track {
-    height: 10px;
-    margin-top: 8px;
-}
-
-/* Increase button size in header */
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-top:after,
 .ui-header .ui-btn-icon-bottom:after {
@@ -136,4 +56,93 @@ form button {
 .ui-header .ui-icon-edit:after,
 .ui-header .ui-icon-delete:after {
     background-size: 35px 35px;
+}
+
+
+/* the hole content */
+.ui-content {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+/* confirm buttons (delete, save, update) */
+.green-button {
+    background: PaleGreen !important;
+}
+.green-button:active {
+    background: LightGreen !important;
+}
+
+.red-button {
+    background: Salmon !important;
+}
+.red-button:active {
+    background: Tomato !important;
+}
+
+
+/* standard elements */
+label {
+    font-size: 26px !important;
+    height: 40px;
+}
+
+
+/* form elements */
+form input {
+    height: 40px;
+    font-size: 26px !important;
+}
+
+form button {
+    height: 100px;
+    font-size: 26px !important;
+}
+
+.errorlist li {
+    color: red;
+}
+
+.ui-slider input {
+    height: 30px;
+}
+.ui-slider-track {
+    height: 10px;
+    margin-top: 8px;
+}
+
+
+/* lists */
+.js-list-item {
+    padding: .2em 1em;
+}
+
+.js-list-item-title {
+    font-size: 32px !important;
+    margin: .20em 0 !important;
+}
+
+.js-list-item-comment {
+    font-size: 20px !important;
+}
+
+
+/* search widget */
+.ui-input-search {
+    height: 60px !important;
+    line-height: 60px !important;
+    font-size: 50px !important;
+    margin-top: 8px;
+}
+
+
+/* generic */
+.ui-corner-all {
+    -webkit-border-radius: .6125em;
+    border-radius: .6125em;
+}
+.ui-btn-inner .ui-icon{
+    margin: 0px;
+    border-radius: 0;
 }
