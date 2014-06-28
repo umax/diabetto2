@@ -1,11 +1,13 @@
 (function($, _, global) {
-    var selectorProductWeightInput = '.product-weight-field input',
-        selectorStatisticsWeight = '#statistics-weight',
-        selectorCarbohydrateUnits = '#statistics-carbohydrate-units',
+    var selectorStatisticsWeight = '#statistics-weight',
+        selectorStatisticsWeightPerPortion = '#statistics-weight-per-portion',
+        selectorStatisticsCarbohydrateUnits = '#statistics-carbohydrate-units',
+        selectorStatisticsCarbohydrateUnitsPerPortion = '#statistics-carbohydrate-units-per-portion',
+
         selectorProductLi = 'li[data-product-id]',
         selectorProductsList = '#products-list',
-        selectorCarbohydrateUnitsPerPortion = '#statistics-carbohydrate-units-in-portion',
         selectorPortonsInput = '#id_portions';
+        selectorProductWeightInput = '.product-weight-field input',
 
 
     global.Diabetto = global.Diabetto || {};
@@ -16,6 +18,7 @@
             Statistics.updateStatisticsWeight();
             Statistics.updateStatisticsCarbohydrateUnits();
             Statistics.updateStatisticsCarbohydratePerPortion();
+            Statistics.updateStatisticsWeightPerPortion();
         },
 
         updateStatisticsWeight: function() {
@@ -23,14 +26,26 @@
         },
 
         updateStatisticsCarbohydrateUnits: function() {
-            $(selectorCarbohydrateUnits).html(getCarbohydrateUnits().toFixed(2));
+            $(selectorStatisticsCarbohydrateUnits).html(getCarbohydrateUnits().toFixed(2));
         },
 
         updateStatisticsCarbohydratePerPortion: function() {
-            $(selectorCarbohydrateUnitsPerPortion).html(
+            $(selectorStatisticsCarbohydrateUnitsPerPortion).html(
                 getCarbohydrateUnitsPerPortion().toFixed(2));
+        },
+
+        updateStatisticsWeightPerPortion: function() {
+            $(selectorStatisticsWeightPerPortion).html(
+                getProductsWeightPerPortion().toFixed(0) + ' г.');
         }
     };
+
+
+    function getPortions() {
+        /* Get current number of portions */
+
+        return parseInt($(selectorPortonsInput).val());
+    }
 
 
     function getProductsWeight() {
@@ -46,6 +61,13 @@
         });
 
         return weight;
+    }
+
+
+    function getProductsWeightPerPortion() {
+        /* Calculate all added products weight per portion */
+
+        return getProductsWeight() / getPortions();
     }
 
 
@@ -72,10 +94,7 @@
     function getCarbohydrateUnitsPerPortion() {
         /* Calculate all added products carbohydrate units per portion */
 
-        var carbohydrateUnits = getCarbohydrateUnits(),
-            portions = parseInt($(selectorPortonsInput).val());
-
-        return carbohydrateUnits / portions;
+        return getCarbohydrateUnits() / getPortions();
     }
 
 })(jQuery, _, window);

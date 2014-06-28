@@ -55,8 +55,8 @@
                        onRemoveProductButtonClick);
         $(document).on('input', selectorProductWeightInput,
                        global.Diabetto.Statistics.updateStatistics);
-        $(selectorPotionsInput).change(global.
-            Diabetto.Statistics.updateStatisticsCarbohydratePerPortion);
+        $(selectorPotionsInput).change(
+            global.Diabetto.Statistics.updateStatistics);
 
         productsList = $(selectorProductsList);
         productTemplate = _.template($('#product-template').text());
