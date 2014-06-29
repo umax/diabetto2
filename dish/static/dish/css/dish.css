@@ -42,3 +42,12 @@
 .statistics-value {
     font-weight: bold;
 }
+
+
+/* collape widget */
+.ui-collapsible-heading-toggle {
+    font-size: 26px;
+}
+.ui-collapsible-content .ui-select a {
+    font-size: 26px;
+}

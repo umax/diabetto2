@@ -1,6 +1,8 @@
-<select id="filter-menu" data-native-menu="false">
-    <option></option>
-    {% for product in all_products %}
-        <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
-    {% endfor %}
-</select>
+<div class="products-menu-container">
+    <select id="filter-menu" data-native-menu="false">
+        <option></option>
+        {% for product in all_products %}
+            <option class="select-option" value="{{ product.id }}">{{ product.name }}</option>
+        {% endfor %}
+    </select>
+</div>

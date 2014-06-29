@@ -6,30 +6,6 @@
     <a href="#" class="js-button-add-product ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-plus ui-btn-icon-notext" title="Добавить новый продукт к блюду"></a>
 {% endblock toolbar %}
 
-{% block content %}
-    <form method="POST">
-        <label for="id_name">Название блюда:</label>
-        <input type="text" name="name" id="id_name" value="" maxlength="128">
-        {% if form.name.errors %}
-            {{ form.name.errors }}
-        {% endif %}
-        <br/>
-
-        <label for="id_portions">Количество порций:</label>
-        <input type="range" name="portions" id="id_portions" value="4" min="1" max="10">
-        <br/><br/>
-
-        <label>Продукты:</label>
-        <ul id="products-list" data-role="listview" data-inset="true">
-        </ul>
-        <br/>
-
-        <label>Статистика:</label>
-            {% include 'dish/_statistics.html' %}
-        <br/><br/>
-
-        <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
-
-        {% include 'dish/_products_menu.html' %}
-    </form>
-{% endblock content %}
+{% block submit_button %}
+    <button class="ui-btn ui-corner-all green-button" type="submit">Создать</button>
+{% endblock submit_button %}

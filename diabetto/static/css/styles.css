@@ -100,6 +100,11 @@ form button {
     font-size: 26px !important;
 }
 
+textarea {
+    height: 150px !important;
+    font-size: 26px !important;
+}
+
 .errorlist li {
     color: red;
 }

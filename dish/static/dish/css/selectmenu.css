@@ -16,13 +16,13 @@
 .ui-selectmenu.ui-dialog .ui-header {
     border-bottom-width: 1px;
 }
-.ui-select {
+.products-menu-container .ui-select {
     display: none !important;
 }
 .ui-selectmenu-list.ui-listview li a {
     font-size: 25px !important;
 }
-.ui-selectmenu-list.ui-listview li.ui-first-child a {
+.products-menu-container .ui-selectmenu-list.ui-listview li.ui-first-child a {
     font-size: 0px !important;
 }
 .ui-selectmenu.ui-popup .ui-input-search {
