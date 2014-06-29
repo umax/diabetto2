@@ -16,11 +16,13 @@ class Dish(models.Model):
     TECH_PANASONIC = 'panasonic'
     TECH_REDMOND = 'redmond'
     TECH_STOVE = 'stove'
+    TECH_BREAD = 'bread'
     TECH_CHOICES = (
-        (TECH_BOSCH, 'Bosh'),
-        (TECH_REDMOND, 'Redmond'),
-        (TECH_PANASONIC, 'Panasonic'),
+        (TECH_BOSCH, u'Духовка'),
+        (TECH_REDMOND, u'Скороварка'),
+        (TECH_PANASONIC, u'Мультиварка'),
         (TECH_STOVE, u'Плита'),
+        (TECH_BREAD, u'Хлебопечка')
     )
 
     name = models.CharField(
