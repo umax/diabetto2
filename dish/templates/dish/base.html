@@ -27,7 +27,7 @@
 {% block content %}
     <form method="POST" data-ajax="false">
         <label for="id_name">Название блюда:</label>
-        <input type="text" name="name" id="id_name" value="{% if form.name.value %}{{ form.name.value }}{% else %}1{% endif %}" maxlength="128">
+        <input type="text" name="name" id="id_name" value="{% if form.name.value %}{{ form.name.value }}{% endif %}" maxlength="128">
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}
@@ -44,7 +44,10 @@
 
         <label>Статистика:</label>
         {% include 'dish/_statistics.html' %}
-        <br/><br/>
+        <br/>
+
+        {% include 'dish/_receipt.html' %}
+        <br/>
 
         {% block submit_button %}
         {% endblock submit_button %}

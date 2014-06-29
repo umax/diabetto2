@@ -1,0 +1,13 @@
+<div class="receipt-container">
+    <fieldset data-role="collapsible">
+        <legend>Рецепт приготовления</legend>
+
+        <select name="technics" id="id_technics" data-native-menu="false">
+            {% for technic in form.technics.field.choices %}
+                <option {%if form.technics.value == technic.0 %}selected{% endif %} value="{{ technic.0 }}">{{ technic.1 }}</option>
+            {% endfor %}
+        </select>
+
+        <textarea name="comments" id="id_comments">{% if form.comments.value %}{{ form.comments.value }}{% endif %}</textarea>
+    </fieldset>
+</div>

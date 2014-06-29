@@ -11,7 +11,7 @@ __all__ = (
 class DishForm(ModelForm):
     class Meta:
         model = Dish
-        fields = ['name', 'portions']
+        fields = ['name', 'portions', 'comments', 'technics']
 
     def __init__(self, *args, **kwargs):
         super(DishForm, self).__init__(*args, **kwargs)
@@ -36,6 +36,9 @@ class DishForm(ModelForm):
                     continue
 
         return weights
+
+    def clean_comments(self):
+        return self.cleaned_data.get('comments', '')
 
     def clean(self):
         cleaned_data = super(DishForm, self).clean()

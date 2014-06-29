@@ -12,12 +12,28 @@ __all__ = (
 
 
 class Dish(models.Model):
+    TECH_BOSCH = 'bosh'
+    TECH_PANASONIC = 'panasonic'
+    TECH_REDMOND = 'redmond'
+    TECH_STOVE = 'stove'
+    TECH_CHOICES = (
+        (TECH_BOSCH, 'Bosh'),
+        (TECH_REDMOND, 'Redmond'),
+        (TECH_PANASONIC, 'Panasonic'),
+        (TECH_STOVE, u'Плита'),
+    )
+
     name = models.CharField(
         max_length=128,
         unique=True,
         error_messages={'unique': u'Блюдо с таким названием уже существует'})
     portions = models.PositiveIntegerField(default=2)
     components = models.ManyToManyField(Product, through='Component')
+    comments = models.TextField(default='', blank=True)
+    technics = models.CharField(
+        max_length=20,
+        default=TECH_REDMOND,
+        choices=TECH_CHOICES)
 
     class Meta:
         ordering = ['name']
