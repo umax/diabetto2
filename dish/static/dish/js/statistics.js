@@ -84,7 +84,9 @@
             productWeight = parseInt(productLiEl.querySelector('input').value);
             productCarbohydrates = global.Diabetto.allProducts[productId].carbohydrates;
 
-            carbohydrateUnits += (productCarbohydrates / 100.0 * productWeight / 12)
+            if (productWeight) {
+                carbohydrateUnits += (productCarbohydrates / 100.0 * productWeight / 12);
+            }
         });
 
         return carbohydrateUnits;
