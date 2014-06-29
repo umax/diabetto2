@@ -10,13 +10,15 @@
 {% block toolbar %}
 {% endblock toolbar %}
 
-{% block js %}
+{% block base_js %}
     <script>
         window.Diabetto = window.Diabetto || {};
         window.Diabetto.allProducts = {{ json_all_products|safe }};
         window.Diabetto.dishProducts = {{ json_dish_products|safe }};
     </script>
+{% endblock base_js %}
 
+{% block js %}
     {% assets "dish_base_js" %}
         <script type="text/javascript" src="{{ ASSET_URL }}"></script>
     {% endassets %}
