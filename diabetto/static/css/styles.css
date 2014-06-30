@@ -38,13 +38,13 @@
 .ui-header .ui-btn-icon-top:after,
 .ui-header .ui-btn-icon-bottom:after,
 .portions-container .ui-btn-icon-notext:after {
-    margin-left: -35px;
+    margin-left: -37px;
 }
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-left:after,
 .ui-header .ui-btn-icon-right:after,
 .portions-container .ui-btn-icon-notext:after {
-    margin-top: -35px;
+    margin-top: -37px;
 }
 .ui-header .ui-btn-icon-left:after,
 .ui-header .ui-btn-icon-right:after,
@@ -52,8 +52,8 @@
 .ui-header .ui-btn-icon-bottom:after,
 .ui-header .ui-btn-icon-notext:after,
 .portions-container .ui-btn-icon-notext:after {
-    height: 70px;
-    width: 70px;
+    height: 74px;
+    width: 74px;
 }
 .ui-header .ui-icon-back:after,
 .ui-header .ui-icon-plus:after,
@@ -61,7 +61,7 @@
 .ui-header .ui-icon-delete:after,
 .portions-container .ui-icon-minus:after,
 .portions-container .ui-icon-plus:after {
-    background-size: 35px 35px;
+    background-size: 37px 37px;
 }
 .ui-btn-icon-notext.ui-btn-corner-all, .ui-btn-icon-notext.ui-corner-all {
     border-radius: 2.5em;
@@ -93,8 +93,16 @@
 
 /* main menu buttons */
 .main-menu-button {
-    height: 40px;
-    font-size: 28px;
+    font-size: 32px;
+    line-height: 250px;
+    width: 250px;
+    height: 260px;
+    border-radius: 250px !important;
+    margin-bottom: 100px;
+}
+.main-menu-container {
+    margin-top: 200px;
+    margin-left: 259px;
 }
 
 
