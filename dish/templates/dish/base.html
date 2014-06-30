@@ -31,10 +31,17 @@
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}
-        <br/>
+        <br/><br/>
 
         <label for="id_portions">Количество порций:</label>
-        <input type="range" name="portions" id="id_portions" value="{% if form.portions.value %}{{ form.portions.value }}{% else %}4{% endif %}" min="1" max="10">
+        <div class="portions-container">
+            <a href="#" class="ui-btn ui-btn-inline ui-icon-minus ui-corner-all ui-btn-icon-notext button-portion-minus" title="Уменьшить число порций"></a>
+            <input type="text" name="portions" id="id_portions" value="{% if form.portions.value %}{{ form.portions.value }}{% else %}4{% endif %}" maxlength="3">
+            <a href="#" class="ui-btn ui-btn-inline ui-icon-plus ui-corner-all ui-btn-icon-notext button-portion-plus" title="Увеличить число порций"></a>
+        </div>
+        {% if form.portions.errors %}
+            {{ form.portions.errors }}
+        {% endif %}
         <br/><br/>
 
         <label>Продукты:</label>
@@ -44,10 +51,10 @@
 
         <label>Статистика:</label>
         {% include 'dish/_statistics.html' %}
-        <br/>
+        <br/><br/>
 
         {% include 'dish/_receipt.html' %}
-        <br/>
+        <br/><br/>
 
         {% block submit_button %}
         {% endblock submit_button %}

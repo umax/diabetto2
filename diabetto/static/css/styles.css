@@ -12,7 +12,8 @@
 /* header buttons */
 .ui-header .ui-btn,
 .ui-header .ui-icon,
-.ui-header .ui-btn-inner {
+.ui-header .ui-btn-inner,
+.portions-container .ui-btn {
     width: 70px;
     height: 70px;
 }
@@ -35,26 +36,31 @@
 }
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-top:after,
-.ui-header .ui-btn-icon-bottom:after {
+.ui-header .ui-btn-icon-bottom:after,
+.portions-container .ui-btn-icon-notext:after {
     margin-left: -35px;
 }
 .ui-header .ui-btn-icon-notext:after,
 .ui-header .ui-btn-icon-left:after,
-.ui-header .ui-btn-icon-right:after {
+.ui-header .ui-btn-icon-right:after,
+.portions-container .ui-btn-icon-notext:after {
     margin-top: -35px;
 }
 .ui-header .ui-btn-icon-left:after,
 .ui-header .ui-btn-icon-right:after,
 .ui-header .ui-btn-icon-top:after,
 .ui-header .ui-btn-icon-bottom:after,
-.ui-header .ui-btn-icon-notext:after {
+.ui-header .ui-btn-icon-notext:after,
+.portions-container .ui-btn-icon-notext:after {
     height: 70px;
     width: 70px;
 }
 .ui-header .ui-icon-back:after,
 .ui-header .ui-icon-plus:after,
 .ui-header .ui-icon-edit:after,
-.ui-header .ui-icon-delete:after {
+.ui-header .ui-icon-delete:after,
+.portions-container .ui-icon-minus:after,
+.portions-container .ui-icon-plus:after {
     background-size: 35px 35px;
 }
 
@@ -114,14 +120,6 @@ textarea {
 
 .errorlist li {
     color: red;
-}
-
-.ui-slider input {
-    height: 30px;
-}
-.ui-slider-track {
-    height: 10px;
-    margin-top: 8px;
 }
 
 

@@ -51,3 +51,12 @@
 .ui-collapsible-content .ui-select a {
     font-size: 26px;
 }
+
+
+/* portions */
+.portions-container .ui-input-text {
+    display: inline-block;
+    width: 100px;
+    margin-left: 10px;
+    margin-right: 20px;
+}

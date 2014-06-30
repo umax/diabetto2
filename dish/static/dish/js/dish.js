@@ -8,6 +8,9 @@
         selectorPotionsInput = '#id_portions',
         selectorProductWeightInput = '.product-weight-field input',
 
+        selectorButtonPortionsMinus = '.button-portion-minus',
+        selectorButtonPortionsPlus = '.button-portion-plus',
+
         productTemplate = null,
         productsList = null;
 
@@ -16,13 +19,35 @@
         $(selectorFilterMenu).selectmenu("open");
     }
 
-
     function onRemoveProductButtonClick(event) {
         $(this).closest('li').remove();
         productsList.listview('refresh');
         global.Diabetto.Statistics.updateStatistics();
     }
 
+    function onButtonPortionsMinusClick(event) {
+        event.preventDefault();
+
+        var portions = parseInt($(selectorPotionsInput).val());
+        if (portions) {
+            portions -= 1;
+            if (portions <= 0) {
+                portions = 1;
+            }
+            $(selectorPotionsInput).val(portions);
+        }
+
+    }
+
+    function onButtonPortionsPlusClick(event) {
+        event.preventDefault();
+
+        var portions = parseInt($(selectorPotionsInput).val());
+        if (portions) {
+            portions += 1;
+            $(selectorPotionsInput).val(portions);
+        }
+    }
 
     function onFilterMenuChange(event) {
         /* Add selected product to products list */
@@ -51,6 +76,8 @@
     $(document).ready(function() {
         $(selectorFilterMenu).change(onFilterMenuChange);
         $(selectorButtonAddProduct).click(onAddProductButtonClick);
+        $(selectorButtonPortionsPlus).click(onButtonPortionsPlusClick);
+        $(selectorButtonPortionsMinus).click(onButtonPortionsMinusClick);
         $(document).on('click', selectorButtonRemoveProduct,
                        onRemoveProductButtonClick);
         $(document).on('input', selectorProductWeightInput,
