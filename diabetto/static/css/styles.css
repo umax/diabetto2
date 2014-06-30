@@ -1,7 +1,7 @@
 /* header */
 .ui-header {
     height: 86px;
-    font-size: 30px;
+    font-size: 32px;
     padding: 4px;
 }
 .ui-header .ui-title {
@@ -93,9 +93,9 @@
 
 /* main menu buttons */
 .main-menu-button {
-    font-size: 32px;
+    font-size: 40px;
     line-height: 250px;
-    width: 250px;
+    width: 240px;
     height: 260px;
     border-radius: 250px !important;
     margin: 0 auto;
@@ -112,15 +112,17 @@
 
 /* standard elements */
 label {
-    font-size: 26px !important;
-    height: 40px;
+    font-size: 30px !important;
+    height: 52px;
+    margin-bottom: 0px !important;
 }
 
 
 /* form elements */
 form input {
-    height: 40px;
-    font-size: 26px !important;
+    height: 46px;
+    line-height: 56px;
+    font-size: 30px !important;
 }
 
 form button {
@@ -144,12 +146,12 @@ textarea {
 }
 
 .js-list-item-title {
-    font-size: 32px !important;
+    font-size: 38px !important;
     margin: .20em 0 !important;
 }
 
 .js-list-item-comment {
-    font-size: 20px !important;
+    font-size: 24px !important;
 }
 
 
