@@ -98,11 +98,15 @@
     width: 250px;
     height: 260px;
     border-radius: 250px !important;
-    margin-bottom: 100px;
+    margin: 0 auto;
+    margin-bottom: 70px;
 }
 .main-menu-container {
-    margin-top: 200px;
-    margin-left: 259px;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 90px;
+    vertical-align: middle;
 }
 
 
