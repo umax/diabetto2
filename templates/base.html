@@ -7,10 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static 'css/jquery.mobile-1.4.2.min.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles.css' %}?version={{ settings.VERSION }}" />
-        {% block css %}
-        {% endblock css %}
-
-        <script src="{% static 'js/jquery.js' %}"></script>
+        {% block css %}{% endblock css %}
     </head>
 
     <body>
@@ -22,18 +19,13 @@
             </div>
 
             <div role="main" class="ui-content">
-                {% block content %}
-                {% endblock content %}
+                {% block content %}{% endblock content %}
             </div>
         </div>
     </body>
 
-    {% block hidden_content %}
-    {% endblock hidden_content %}
-
-    {% block base_js %}
-    {% endblock base_js %}
-
-    {% block js %}
-    {% endblock js %}
+    {% block hidden_content %}{% endblock hidden_content %}
+    <script src="{% static 'js/jquery.js' %}"></script>
+    {% block base_js %}{% endblock base_js %}
+    {% block js %}{% endblock js %}
 </html>
