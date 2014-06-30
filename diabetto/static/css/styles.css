@@ -63,6 +63,9 @@
 .portions-container .ui-icon-plus:after {
     background-size: 35px 35px;
 }
+.ui-btn-icon-notext.ui-btn-corner-all, .ui-btn-icon-notext.ui-corner-all {
+    border-radius: 2.5em;
+}
 
 
 /* the hole content */
