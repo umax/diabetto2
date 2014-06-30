@@ -82,6 +82,13 @@
 }
 
 
+/* main menu buttons */
+.main-menu-button {
+    height: 40px;
+    font-size: 28px;
+}
+
+
 /* standard elements */
 label {
     font-size: 26px !important;
