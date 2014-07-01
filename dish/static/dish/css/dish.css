@@ -6,6 +6,10 @@
 #products-list li {
     text-align: left;
 }
+#filter-menu-menu li.ui-first-child a {
+    height: 0px !important;
+    font-size: 0px !important;
+}
 
 
 /* product element in products list */
