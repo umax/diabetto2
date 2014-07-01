@@ -12,7 +12,7 @@
             <li>
                 <a class="js-list-item" href="{% url 'update_dish' pk=dish.id %}" data-ajax="false">
                     <h3 class="js-list-item-title">{{ dish.name }}</h3>
-                    <p class="js-list-item-comment">Продуктов: {{ dish.components.count}}, порций: {{ dish.portions }}</p>
+                    <p class="js-list-item-comment">Порций: {{ dish.portions }}, ХЕ в 1 порции: {{ dish.carbohydrates_per_portion }}</p>
                 </a>
             </li>
         {% endfor %}

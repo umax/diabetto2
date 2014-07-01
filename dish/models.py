@@ -3,7 +3,7 @@
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from product.models import Product
+from product.models import Product, CARBOHYDRATE_UNIT
 
 __all__ = (
     'Dish',
@@ -47,6 +47,15 @@ class Dish(models.Model):
 
     def get_absolute_url(self):
         return reverse('detail_dish', kwargs={'pk': self.pk})
+
+    @property
+    def carbohydrates_per_portion(self):
+        carbohydrate_units = 0.0
+        for component in self.component_set.all():
+            carbohydrate_units += (component.product.carbohydrates / 100.0 *
+                                   component.weight / CARBOHYDRATE_UNIT)
+
+        return round(carbohydrate_units / self.portions, 2)
 
 
 class Component(models.Model):
