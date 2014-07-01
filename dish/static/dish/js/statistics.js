@@ -67,7 +67,10 @@
     function getProductsWeightPerPortion() {
         /* Calculate all added products weight per portion */
 
-        return getProductsWeight() / getPortions();
+        var portions = getPortions();
+        if (portions) {
+            return getProductsWeight() / portions;
+        }
     }
 
 
@@ -96,7 +99,10 @@
     function getCarbohydrateUnitsPerPortion() {
         /* Calculate all added products carbohydrate units per portion */
 
-        return getCarbohydrateUnits() / getPortions();
+        var portions = getPortions();
+        if (portions) {
+            return getCarbohydrateUnits() / portions;
+        }
     }
 
 })(jQuery, _, window);

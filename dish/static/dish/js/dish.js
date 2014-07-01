@@ -5,7 +5,7 @@
 
         selectorFilterMenu = '#filter-menu',
         selectorProductsList = '#products-list',
-        selectorPotionsInput = '#id_portions',
+        selectorPortionsInput = '#id_portions',
         selectorProductWeightInput = '.product-weight-field input',
 
         selectorButtonPortionsMinus = '.button-portion-minus',
@@ -28,13 +28,14 @@
     function onButtonPortionsMinusClick(event) {
         event.preventDefault();
 
-        var portions = parseInt($(selectorPotionsInput).val());
+        var portions = parseInt($(selectorPortionsInput).val());
         if (portions) {
             portions -= 1;
             if (portions <= 0) {
                 portions = 1;
             }
-            $(selectorPotionsInput).val(portions);
+            $(selectorPortionsInput).val(portions);
+            global.Diabetto.Statistics.updateStatistics();
         }
 
     }
@@ -42,10 +43,11 @@
     function onButtonPortionsPlusClick(event) {
         event.preventDefault();
 
-        var portions = parseInt($(selectorPotionsInput).val());
+        var portions = parseInt($(selectorPortionsInput).val());
         if (portions) {
             portions += 1;
-            $(selectorPotionsInput).val(portions);
+            $(selectorPortionsInput).val(portions);
+            global.Diabetto.Statistics.updateStatistics();
         }
     }
 
@@ -82,11 +84,12 @@
                        onRemoveProductButtonClick);
         $(document).on('input', selectorProductWeightInput,
                        global.Diabetto.Statistics.updateStatistics);
-        $(selectorPotionsInput).change(
-            global.Diabetto.Statistics.updateStatistics);
+        $(document).on('input', selectorPortionsInput,
+                       global.Diabetto.Statistics.updateStatistics);
 
         productsList = $(selectorProductsList);
         productTemplate = _.template($('#product-template').text());
+        global.Diabetto.Statistics.updateStatistics();
     });
 
 })(jQuery, _, window);
