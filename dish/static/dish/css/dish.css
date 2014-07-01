@@ -2,6 +2,7 @@
 #products-list {
     font-size: 28px;
     line-height: 60px !important;
+    margin-top: 5px;
 }
 #products-list li {
     text-align: left;
@@ -43,6 +44,9 @@
 
 
 /* statistics */
+#statistics {
+    margin-top: 5px !important;
+}
 .statistics-value {
     font-weight: bold;
 }
