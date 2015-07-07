@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import decimal
+
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -9,14 +11,17 @@ __all__ = (
     'Product',
 )
 
-CARBOHYDRATE_UNIT = 12.0
+CARBOHYDRATE_UNIT = decimal.Decimal('12.0')
 
 
 class Product(models.Model):
     name = models.CharField(
         max_length=128,
         error_messages={'unique': u'Продукт с таким названием уже существует'})
-    carbohydrates = models.PositiveIntegerField(default=0)
+    carbohydrates = models.DecimalField(
+        default=0,
+        max_digits=3,
+        decimal_places=1)
     glycemic_index = models.PositiveIntegerField(default=0)
     category = models.ForeignKey(Category, null=True, default=None)
 
@@ -34,7 +39,7 @@ class Product(models.Model):
 
     @property
     def cu_product(self):
-        return '%.2f' % (100 * CARBOHYDRATE_UNIT / self.carbohydrates)
+        return round(100 * CARBOHYDRATE_UNIT / self.carbohydrates, 1)
 
     def admin_product_name(self):
         return self.name

@@ -34,7 +34,7 @@ class ProductsMixin(object):
         for product in self.get_all_products():
             products[product.id] = {
                 'name': product.name,
-                'carbohydrates': product.carbohydrates,
+                'carbohydrates': float(product.carbohydrates),
             }
 
         return products

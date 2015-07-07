@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import decimal
+
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -50,9 +52,9 @@ class Dish(models.Model):
 
     @property
     def carbohydrates_per_portion(self):
-        carbohydrate_units = 0.0
+        carbohydrate_units = decimal.Decimal('0.0')
         for component in self.component_set.all():
-            carbohydrate_units += (component.product.carbohydrates / 100.0 *
+            carbohydrate_units += (component.product.carbohydrates / 100 *
                                    component.weight / CARBOHYDRATE_UNIT)
 
         return round(carbohydrate_units / self.portions, 2)
