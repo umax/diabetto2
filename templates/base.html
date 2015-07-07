@@ -5,7 +5,7 @@
     <head>
         <title>Diabetto</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{% static 'css/jquery.mobile-1.4.2.min.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/jquery.mobile-1.4.5.min.css' %}" />
         <link rel="stylesheet" href="{% static 'css/styles.css' %}?version={{ settings.VERSION }}" />
         {% block css %}{% endblock css %}
     </head>
@@ -25,7 +25,8 @@
     </body>
 
     {% block hidden_content %}{% endblock hidden_content %}
-    <script src="{% static 'js/jquery.js' %}"></script>
+    <script src="{% static 'js/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'js/jquery.mobile-1.4.5.min.js' %}"></script>
     {% block base_js %}{% endblock base_js %}
     {% block js %}{% endblock js %}
 </html>
