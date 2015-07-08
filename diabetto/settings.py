@@ -98,7 +98,7 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
 
-VERSION = '0.2.3'
+VERSION = '0.2.4'
 
 try:
     from settings_local import *

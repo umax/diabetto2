@@ -7,9 +7,13 @@
         selectorProductsList = '#products-list',
         selectorPortionsInput = '#id_portions',
         selectorProductWeightInput = '.product-weight-field input',
+        selectorDishComments = '.dish-comments',
 
         selectorButtonPortionsMinus = '.button-portion-minus',
         selectorButtonPortionsPlus = '.button-portion-plus',
+
+        selectorButtonScrollUp = '.scroll-up-button',
+        selectorButtonScrollDown = '.scroll-down-button',
 
         productTemplate = null,
         productsList = null;
@@ -74,12 +78,28 @@
         global.Diabetto.Statistics.updateStatistics();
     }
 
+    function onScrollUpButtonClick(event) {
+        var commentsEl = $(selectorDishComments);
+        commentsEl.animate({
+            'scrollTop': commentsEl.scrollTop() - 100
+        }, 100);
+    }
+
+    function onScrollDownButtonClick(event) {
+        var commentsEl = $(selectorDishComments);
+        commentsEl.animate({
+            'scrollTop': commentsEl.scrollTop() + 100
+        }, 100);
+    }
+
 
     $(document).ready(function() {
         $(selectorFilterMenu).change(onFilterMenuChange);
         $(selectorButtonAddProduct).click(onAddProductButtonClick);
         $(selectorButtonPortionsPlus).click(onButtonPortionsPlusClick);
         $(selectorButtonPortionsMinus).click(onButtonPortionsMinusClick);
+        $(selectorButtonScrollUp).click(onScrollUpButtonClick);
+        $(selectorButtonScrollDown).click(onScrollDownButtonClick);
         $(document).on('click', selectorButtonRemoveProduct,
                        onRemoveProductButtonClick);
         $(document).on('input', selectorProductWeightInput,

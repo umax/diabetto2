@@ -7,7 +7,12 @@
                 <option {%if form.technics.value == technic.0 %}selected{% endif %} value="{{ technic.0 }}">{{ technic.1 }}</option>
             {% endfor %}
         </select>
+        <br/>
 
-        <textarea name="comments" id="id_comments">{% if form.comments.value %}{{ form.comments.value }}{% endif %}</textarea>
+        <div class="comments-container">
+            <a class="scroll-up-button ui-btn ui-btn-inline ui-corner-all ui-btn-icon-notext ui-icon-carat-u"></a>
+            <textarea class="dish-comments" name="comments" id="id_comments" rows="8">{% if form.comments.value %}{{ form.comments.value }}{% endif %}</textarea>
+            <a class="scroll-down-button ui-btn ui-btn-inline ui-corner-all ui-btn-icon-notext ui-icon-carat-d">Down</a>
+        </div>
     </fieldset>
 </div>

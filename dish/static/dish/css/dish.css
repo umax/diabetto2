@@ -68,3 +68,22 @@
     margin-left: 10px;
     margin-right: 20px;
 }
+
+
+/* comments */
+.dish-comments {
+    height: auto !important;
+    overflow:auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.scroll-up-button {
+    width: 95%;
+    margin-left: 16px;
+    margin-bottom: 0px;
+}
+.scroll-down-button {
+    width: 95%;
+    margin-left: 16px;
+    margin-top: 0px;
+}
