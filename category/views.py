@@ -17,15 +17,19 @@ __all__ = (
 
 
 class CategoryIndexView(ListView):
-    model = models.Category
     context_object_name = 'categories'
     template_name = 'category/index.html'
 
+    def get_queryset(self):
+        return models.Category.objects.all().prefetch_related('products')
+
 
 class CategoryDetailView(DetailView):
-    model = models.Category
     context_object_name = 'category'
     template_name = 'category/detail.html'
+
+    def get_queryset(self):
+        return models.Category.objects.all().prefetch_related('products')
 
 
 class CategoryCreateView(CreateView):

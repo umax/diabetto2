@@ -25,7 +25,11 @@ class Product(models.Model):
         max_digits=3,
         decimal_places=1)
     glycemic_index = models.PositiveIntegerField(default=0)
-    category = models.ForeignKey(Category, null=True, default=None)
+    category = models.ForeignKey(
+        Category,
+        null=True,
+        default=None,
+        related_name='products')
 
     class Meta:
         ordering = ['name']
