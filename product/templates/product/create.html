@@ -8,21 +8,24 @@
 {% block content %}
     <form method="POST">
         <label for="id_name">Название продукта:</label>
-        <input type="text" name="name" id="id_name" value="" maxlength="128">
+        <input type="text" name="name" id="id_name" value="{{ form.name.value|default:"" }}" maxlength="128">
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}
         <br/>
 
         <label for="id_carbohydrates">Углеводы (в 100г):</label>
-        <input type="text" name="carbohydrates" id="id_carbohydrates" value="" maxlength="4">
+        <input type="text" name="carbohydrates" id="id_carbohydrates" value="{{ form.carbohydrates.value|default:"" }}" maxlength="4">
         {% if form.carbohydrates.errors %}
             {{ form.carbohydrates.errors }}
         {% endif %}
         <br/>
 
         <label for="id_glycemic_index">Гликемический индекс:</label>
-        <input type="text" name="glycemic_index" id="id_glycemic_index" value="0" maxlength="3">
+        <input type="text" name="glycemic_index" id="id_glycemic_index" value="{{ form.glycemic_index.value|default:0 }}" maxlength="3">
+        {% if form.glycemic_index.errors %}
+            {{ form.glycemic_index.errors }}
+        {% endif %}
         <br/>
 
         <input type="hidden" name="category" id="id_category" value="{{ category.id }}">

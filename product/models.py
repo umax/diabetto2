@@ -19,6 +19,7 @@ class Product(models.Model):
         max_length=128,
         unique=True,
         db_index=True,
+        blank=False,
         error_messages={'unique': u'Продукт с таким названием уже существует'})
     carbohydrates = models.DecimalField(
         default=0,

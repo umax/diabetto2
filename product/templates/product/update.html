@@ -16,10 +16,16 @@
 
         <label for="id_carbohydrates" class="form-label">Углеводы (в 100г):</label>
         <input type="text" name="carbohydrates" id="id_carbohydrates" value="{{ product.carbohydrates }}" maxlength="4">
+        {% if form.carbohydrates.errors %}
+            {{ form.carbohydrates.errors }}
+        {% endif %}
         <br/>
 
         <label for="id_glycemic_index" class="form-label">Гликемический индекс:</label>
         <input type="text" name="glycemic_index" id="id_glycemic_index" value="{{ product.glycemic_index }}" maxlength="3">
+        {% if form.glycemic_index.errors %}
+            {{ form.glycemic_index.errors }}
+        {% endif %}
         <br/>
 
         <input type="hidden" name="category" id="id_category" value="{{ product.category.id }}">

@@ -8,7 +8,7 @@
 {% block content %}
     <form method="POST">
         <label for="id_name">Название группы:</label>
-        <input type="text" name="name" id="id_name" value="" maxlength="128">
+        <input type="text" name="name" id="id_name" value="{{ form.name.value|default:"" }}" maxlength="128">
         {% if form.name.errors %}
             {{ form.name.errors }}
         {% endif %}

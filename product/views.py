@@ -33,9 +33,10 @@ class ProductCreateView(CreateView):
 
     def get_context_data(self, **kwargs):
         context = super(ProductCreateView, self).get_context_data(**kwargs)
+        category_id = self.request.GET.get('category_id',
+                                           self.request.POST.get('category'))
         category = get_object_or_404(category_models.Category,
-                                     pk=self.request.GET['category_id'])
-
+                                     pk=category_id)
         context['category'] = category
         return context
 

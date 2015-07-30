@@ -23,6 +23,10 @@ class ProductForm(ModelForm):
             'required': u'Количество углеводов не может быть пустым',
             'invalid': u'Неверное значение',
         })
+        self.fields['glycemic_index'].error_messages.update({
+            'required': u'Гликемический индекс не может быть пустым',
+            'invalid': u'Неверное значение',
+        })
 
     def clean_carbohydrates(self):
         carbohydrates = self.cleaned_data.get('carbohydrates')
