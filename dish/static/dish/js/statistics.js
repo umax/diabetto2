@@ -1,13 +1,12 @@
 (function($, _, global) {
-    var selectorStatisticsWeight = '#statistics-weight',
-        selectorStatisticsWeightPerPortion = '#statistics-weight-per-portion',
+    var selectorStatisticsWeightPerPortion = '#statistics-weight-per-portion',
         selectorStatisticsCarbohydrateUnits = '#statistics-carbohydrate-units',
         selectorStatisticsCarbohydrateUnitsPerPortion = '#statistics-carbohydrate-units-per-portion',
 
         selectorProductLi = 'li[data-product-id]',
         selectorProductsList = '#products-list',
         selectorPortonsInput = '#id_portions';
-        selectorProductWeightInput = '.product-weight-field input',
+        selectorDishWeightInput = '.statistics-dish-weight-input',
 
 
     global.Diabetto = global.Diabetto || {};
@@ -15,14 +14,9 @@
         updateStatistics: function() {
             Statistics = global.Diabetto.Statistics;
 
-            Statistics.updateStatisticsWeight();
             Statistics.updateStatisticsCarbohydrateUnits();
             Statistics.updateStatisticsCarbohydratePerPortion();
             Statistics.updateStatisticsWeightPerPortion();
-        },
-
-        updateStatisticsWeight: function() {
-            $(selectorStatisticsWeight).html(getProductsWeight() + ' г.');
         },
 
         updateStatisticsCarbohydrateUnits: function() {
@@ -48,19 +42,8 @@
     }
 
 
-    function getProductsWeight() {
-        /* Calculate all added products weight */
-
-        var weight = 0, productWeight;
-
-        _.each($(selectorProductWeightInput, $(selectorProductsList)), function(inputEl) {
-            productWeight = parseInt(inputEl.value);
-            if (productWeight) {
-                weight += productWeight;
-            }
-        });
-
-        return weight;
+    function getWeight() {
+        return parseInt($(selectorDishWeightInput).val());
     }
 
 
@@ -69,7 +52,7 @@
 
         var portions = getPortions();
         if (portions) {
-            return getProductsWeight() / portions;
+            return getWeight() / portions;
         }
     }
 
@@ -104,5 +87,10 @@
             return getCarbohydrateUnits() / portions;
         }
     }
+
+    $(document).ready(function() {
+        $(selectorDishWeightInput).keyup(
+            global.Diabetto.Statistics.updateStatisticsWeightPerPortion);
+    });
 
 })(jQuery, _, window);

@@ -11,7 +11,7 @@ __all__ = (
 class DishForm(ModelForm):
     class Meta:
         model = Dish
-        fields = ['name', 'portions', 'comments', 'technics']
+        fields = ['name', 'portions', 'comments', 'technics', 'weight']
 
     def __init__(self, *args, **kwargs):
         super(DishForm, self).__init__(*args, **kwargs)
@@ -25,7 +25,7 @@ class DishForm(ModelForm):
         Extract weights for products from POST data.
         """
 
-        postfix = 'weight'
+        postfix = '_weight'
         weights = {}
         for key, value in self.data.iteritems():
             if key.endswith(postfix):

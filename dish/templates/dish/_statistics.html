@@ -1,6 +1,7 @@
 <ul id="statistics" data-role="listview" data-inset="true">
     <li class="ui-field-contain">
-        <label>Общий вес: <span id="statistics-weight" class="statistics-value"></span></label>
+        <label>Общий вес: </label>
+        <input type="text" class="statistics-dish-weight-input" name="weight" id="id_weight" value="{{ form.weight.value|default:0 }}" maxlength="4">
     </li>
 
     <li class="ui-field-contain">

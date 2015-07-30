@@ -38,6 +38,7 @@ class Dish(models.Model):
         max_length=20,
         default=TECH_REDMOND,
         choices=TECH_CHOICES)
+    weight = models.PositiveIntegerField(default=0)
 
     class Meta:
         ordering = ['name']
