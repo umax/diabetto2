@@ -20,9 +20,12 @@ __all__ = (
 
 
 class DishIndexView(ListView):
-    model = dish_models.Dish
     context_object_name = 'dishes'
     template_name = 'dish/index.html'
+
+    def get_queryset(self):
+        return dish_models.Dish.objects.all().prefetch_related(
+            'component_set__product')
 
 
 class ProductsMixin(object):

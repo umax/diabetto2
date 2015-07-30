@@ -41,7 +41,7 @@ INSTALLED_APPS = (
     'product',
     'dish',
     'south',
-	'django_assets',
+    'django_assets',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -98,7 +98,7 @@ USE_TZ = False
 STATIC_URL = '/static/'
 STATIC_ROOT = ''
 
-VERSION = '0.2.4'
+VERSION = '0.2.5'
 
 try:
     from settings_local import *
