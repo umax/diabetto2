@@ -30,6 +30,7 @@ class Dish(models.Model):
     name = models.CharField(
         max_length=128,
         unique=True,
+        db_index=True,
         error_messages={'unique': u'Блюдо с таким названием уже существует'})
     portions = models.PositiveIntegerField(default=2)
     components = models.ManyToManyField(Product, through='Component')

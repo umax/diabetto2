@@ -17,6 +17,8 @@ CARBOHYDRATE_UNIT = decimal.Decimal('12.0')
 class Product(models.Model):
     name = models.CharField(
         max_length=128,
+        unique=True,
+        db_index=True,
         error_messages={'unique': u'Продукт с таким названием уже существует'})
     carbohydrates = models.DecimalField(
         default=0,
