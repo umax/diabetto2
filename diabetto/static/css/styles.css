@@ -101,6 +101,14 @@
     margin: 0 auto;
     margin-bottom: 70px;
 }
+.products-button {
+    background-image: url('images/products.png');
+    background-size: cover;
+}
+.dishes-button {
+    background-image: url('images/dishes.png');
+    background-size: contain;
+}
 .main-menu-container {
     display: block;
     width: 50%;
